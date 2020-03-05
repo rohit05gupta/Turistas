@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PlaceView">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Latitude"
+        android:layout_gravity="center"
+        android:id="@+id/lat"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="lat"
+        android:layout_gravity="center"
+        android:id="@+id/latitiude"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Longitude"
+        android:layout_gravity="center"
+        android:id="@+id/lon"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="lon"
+        android:layout_gravity="center"
+        android:id="@+id/longitude"/>
+    <TextView
+        android:paddingTop="250dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="VISITED SUCCESSFULLY"
+        android:textAlignment="center"
+        android:id="@+id/info"/>
+
+</LinearLayout>

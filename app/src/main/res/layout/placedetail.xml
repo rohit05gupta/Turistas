@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="#cfd8dc"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:contentPadding="5dp"
+    app:cardUseCompatPadding="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:id="@+id/image"
+            android:scaleType="center"
+            android:adjustViewBounds="true"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="#cfd8dc">
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title\n"
+                android:textColor="#000"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
+            <TextView
+                android:id="@+id/specification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Title\n"
+                android:textColor="#000"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                android:textAlignment="center"/>
+            <TextView
+                android:layout_marginTop="7dp"
+                android:textSize="20dp"
+                android:id="@+id/hdescription"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Description"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_marginTop="7dp"
+                android:id="@+id/description"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="Description"
+                android:textColor="#212121"/>
+
+            <TextView
+                android:layout_marginTop="7dp"
+                android:textSize="20dp"
+                android:id="@+id/hview"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="View"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_marginTop="7dp"
+                android:id="@+id/view"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="view"
+                android:textColor="#212121"/>
+
+            <TextView
+                android:layout_marginTop="7dp"
+                android:textSize="20dp"
+                android:id="@+id/hreach"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="HowToReach"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_marginTop="7dp"
+                android:id="@+id/reach"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:text="view"
+                android:textColor="#212121"/>
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/visit"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:text="Visit Place"
+                android:textColor="#212121"
+                android:background="@color/colorPrimaryDark1"
+                />
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/review"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:text="Write Review"
+                android:textColor="#212121"
+                android:background="@color/colorPrimaryDark1"
+                />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>
