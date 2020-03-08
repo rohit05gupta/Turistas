@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#E47560</color>
+    <color name="colorPrimary">#E67D43</color>
 
     <color name="colorPrimarylighten1">#29b6f6</color>
     <color name="colorPrimarylighten2">#4fc3f7</color>
@@ -23,4 +23,5 @@
     <color name="c1">#65c69d</color>
     <color name="c2">#666f78</color>
     <color name="c3">#353e47</color>
+    <color name="card_view_color">#f5f5f5</color>
 </resources>

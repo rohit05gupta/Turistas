@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardBackgroundColor="#cfd8dc"
+    app:cardBackgroundColor="#000"
     app:cardCornerRadius="3dp"
     app:cardElevation="3dp"
     app:contentPadding="5dp"
@@ -13,7 +13,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#000">
 
         <ImageView
             android:layout_width="match_parent"
@@ -26,25 +27,25 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:background="#cfd8dc">
+            android:background="#000">
             <TextView
                 android:id="@+id/name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Title\n"
-                android:textColor="#000"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:fontFamily="sans-serif-smallcaps"/>
             <TextView
                 android:id="@+id/specification"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Title\n"
-                android:textColor="#000"
                 android:textSize="25sp"
                 android:textStyle="bold"
-                android:textAlignment="center"/>
+                android:textAlignment="center"
+                android:fontFamily="sans-serif-thin"/>
             <TextView
                 android:layout_marginTop="7dp"
                 android:textSize="20dp"
@@ -52,14 +53,14 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="Description"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-smallcaps"/>
             <TextView
                 android:layout_marginTop="7dp"
                 android:id="@+id/description"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="Description"
-                android:textColor="#212121"/>
+                android:text="Description"/>
 
             <TextView
                 android:layout_marginTop="7dp"
@@ -68,14 +69,14 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="View"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-smallcaps"/>
             <TextView
                 android:layout_marginTop="7dp"
                 android:id="@+id/view"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="view"
-                android:textColor="#212121"/>
+                android:text="view"/>
 
             <TextView
                 android:layout_marginTop="7dp"
@@ -84,14 +85,14 @@
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
                 android:text="HowToReach"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:fontFamily="sans-serif-smallcaps"/>
             <TextView
                 android:layout_marginTop="7dp"
                 android:id="@+id/reach"
                 android:layout_height="wrap_content"
                 android:layout_width="wrap_content"
-                android:text="view"
-                android:textColor="#212121"/>
+                android:text="view"/>
             <Button
                 android:layout_marginTop="10dp"
                 android:id="@+id/visit"
