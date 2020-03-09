@@ -38,7 +38,6 @@ public class Recommendation extends AppCompatActivity {
     UserData rec;
     ArrayList like;
     String[] separated;
-    int i=0;
 
     RecyclerView mRecyclerView,mRecyclerView2;
     FirebaseRecyclerOptions<Model> options;
@@ -68,13 +67,7 @@ public class Recommendation extends AppCompatActivity {
                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                     rec = dataSnapshot.getValue(UserData.class);
                     like = rec.getPOI();
-                    separated = new String[like.size()];
-
-                    //creating object array to string array
-                    Object[] obj = like.toArray();
-                    for(Object ob : obj){
-                        separated[i++] = (String)ob;
-                    }
+                    separated = (String[])like.toArray(new String[like.size()]);
 
                     mRecyclerView = findViewById(R.id.cycle);
                     mRecyclerView.setHasFixedSize(true);

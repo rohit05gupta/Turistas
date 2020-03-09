@@ -1,3 +1,13 @@
 <resources>
-    <string name="app_name">InsertTest</string>
+    <string name="app_name">TuristasGit</string>
+
+    <string name="access_token" translatable="false">pk.eyJ1IjoidHVyaXN0YXMiLCJhIjoiY2sxeWdsNnd1MGxiNTNocWd1M2t0enJpaCJ9.Sp9je7H_EDy6yWMcGpjTeA</string>
+    <string name="user_location_permission_explanation">This app needs location permissions in order to show its functionality.</string>
+    <string name="user_location_permission_not_granted">You didn\'t grant location permissions.</string>
+    <string name="new_location">New lat: %1$s New longitude: %2$s</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
+    <string name="drawerOpen">drawerOpen</string>
+    <string name="drawerClose">drawerClose</string>
+    <string name="menu">menu</string>
 </resources>
