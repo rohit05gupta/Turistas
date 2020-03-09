@@ -90,6 +90,7 @@ public class PlaceDetail extends AppCompatActivity {
 
                         Intent i = new Intent(PlaceDetail.this,Review.class);
                         i.putExtra("pname",name);
+                        i.putExtra("specification",specification);
                         startActivity(i);
                     }
                 });

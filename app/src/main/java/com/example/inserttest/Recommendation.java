@@ -30,13 +30,11 @@ import com.google.firebase.database.Query;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
-
 public class Recommendation extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     DatabaseReference reff,reff2;
     UserData rec;
-    ArrayList like;
+    String like;
     String[] separated;
 
     RecyclerView mRecyclerView,mRecyclerView2;
@@ -61,69 +59,69 @@ public class Recommendation extends AppCompatActivity {
         FirebaseUser user = firebaseAuth.getCurrentUser();
         String email = user.getEmail();
 
-            reff2 = FirebaseDatabase.getInstance().getReference("UserData");
-            reff2.orderByChild("email").equalTo(email).addChildEventListener(new ChildEventListener() {
-                @Override
-                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                    rec = dataSnapshot.getValue(UserData.class);
-                    like = rec.getPOI();
-                    separated = (String[])like.toArray(new String[like.size()]);
+        reff2 = FirebaseDatabase.getInstance().getReference("UserData");
+        reff2.orderByChild("email").equalTo(email).addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                rec = dataSnapshot.getValue(UserData.class);
+                like = rec.getPOI();
+                separated = like.split(",");
 
-                    mRecyclerView = findViewById(R.id.cycle);
-                    mRecyclerView.setHasFixedSize(true);
-
-
-                    reff = FirebaseDatabase.getInstance().getReference().child("Places");
-                    Query q = FirebaseDatabase.getInstance().getReference("Places")
-                            .orderByChild("specification")
-                            .equalTo(separated[0]);
-
-                    options = new FirebaseRecyclerOptions.Builder<Model>().setQuery(q, Model.class).build();
-                    adapter = new FirebaseRecyclerAdapter<Model, ViewHolder>(options) {
-                        @Override
-                        protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Model model) {
-                            holder.t1.setText(model.getName());
-                            holder.t2.setText(model.getSpecification());
-                        }
-
-                        @NonNull
-                        @Override
-                        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row2, parent, false);
-                            ViewHolder viewHolder = new ViewHolder(view);
-                            return viewHolder;
-                        }
-                    };
-                    GridLayoutManager g = new GridLayoutManager(getApplicationContext(), 1);
-                    mRecyclerView.setLayoutManager(g);
-                    adapter.startListening();
-                    mRecyclerView.setAdapter(adapter);
+                mRecyclerView = findViewById(R.id.cycle);
+                mRecyclerView.setHasFixedSize(true);
 
 
+                reff = FirebaseDatabase.getInstance().getReference().child("Places");
+                Query q = FirebaseDatabase.getInstance().getReference("Places")
+                        .orderByChild("specification")
+                        .equalTo(separated[0]);
+
+                options = new FirebaseRecyclerOptions.Builder<Model>().setQuery(q, Model.class).build();
+                adapter = new FirebaseRecyclerAdapter<Model, ViewHolder>(options) {
+                    @Override
+                    protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Model model) {
+                        holder.t1.setText(model.getName());
+                        holder.t2.setText(model.getSpecification());
+                    }
+
+                    @NonNull
+                    @Override
+                    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.row2, parent, false);
+                        ViewHolder viewHolder = new ViewHolder(view);
+                        return viewHolder;
+                    }
+                };
+                GridLayoutManager g = new GridLayoutManager(getApplicationContext(), 1);
+                mRecyclerView.setLayoutManager(g);
+                adapter.startListening();
+                mRecyclerView.setAdapter(adapter);
 
 
-                }
 
-                @Override
-                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                }
+            }
 
-                @Override
-                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                }
+            }
 
-                @Override
-                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
 
-                }
+            }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError databaseError) {
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
 
-                }
-            });
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Recommendation");

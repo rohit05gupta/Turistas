@@ -1,41 +1,33 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:mapbox="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".PlaceView">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Latitude"
-        android:layout_gravity="center"
-        android:id="@+id/lat"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="lat"
-        android:layout_gravity="center"
-        android:id="@+id/latitiude"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Longitude"
-        android:layout_gravity="center"
-        android:id="@+id/lon"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="lon"
-        android:layout_gravity="center"
-        android:id="@+id/longitude"/>
-    <TextView
-        android:paddingTop="250dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="VISITED SUCCESSFULLY"
-        android:textAlignment="center"
-        android:id="@+id/info"/>
+    tools:context=".MainActivity">
 
-</LinearLayout>
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        mapbox:layout_constraintBottom_toBottomOf="parent"
+        mapbox:layout_constraintEnd_toEndOf="parent"
+        mapbox:layout_constraintStart_toStartOf="parent"
+        mapbox:layout_constraintTop_toTopOf="parent"
+        mapbox:mapbox_cameraTargetLat="20.5937"
+        mapbox:mapbox_cameraTargetLng="78.9629"
+        mapbox:mapbox_cameraZoom="30" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="match_parent"
+        android:layout_margin="24dp"
+        android:textColor="#ffffff"
+        android:background="@color/colorPrimaryDark"
+        android:layout_height="wrap_content"
+        android:text="Start Navigating"
+        mapbox:layout_constraintBottom_toBottomOf="@+id/mapView"
+        mapbox:layout_constraintEnd_toEndOf="parent"
+        mapbox:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
