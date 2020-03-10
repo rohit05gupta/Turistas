@@ -66,22 +66,22 @@ public class Recommendation extends AppCompatActivity {
                 rec = dataSnapshot.getValue(UserData.class);
                 like = rec.getPOI();
                 separated = like.split(",");
-
                 mRecyclerView = findViewById(R.id.cycle);
                 mRecyclerView.setHasFixedSize(true);
-
-
                 reff = FirebaseDatabase.getInstance().getReference().child("Places");
                 Query q = FirebaseDatabase.getInstance().getReference("Places")
-                        .orderByChild("specification")
-                        .equalTo(separated[0]);
+                        .orderByChild("specification");
 
                 options = new FirebaseRecyclerOptions.Builder<Model>().setQuery(q, Model.class).build();
                 adapter = new FirebaseRecyclerAdapter<Model, ViewHolder>(options) {
                     @Override
                     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Model model) {
-                        holder.t1.setText(model.getName());
-                        holder.t2.setText(model.getSpecification());
+                        for(int i=0;i<separated.length;i++){
+                            if(model.getSpecification().equals(separated[i])) {
+                                holder.t1.setText(model.getName());
+                                holder.t2.setText(model.getSpecification());
+                            }
+                        }
                     }
 
                     @NonNull
@@ -96,10 +96,6 @@ public class Recommendation extends AppCompatActivity {
                 mRecyclerView.setLayoutManager(g);
                 adapter.startListening();
                 mRecyclerView.setAdapter(adapter);
-
-
-
-
             }
 
             @Override
