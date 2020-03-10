@@ -65,26 +65,18 @@ public class Review extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         if(dataSnapshot.exists())
                             id = (dataSnapshot.getChildrenCount());
-
                     }
-
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-
                     }
                 });
-                b1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        rd.setComment(comment);
-                        rd.setPname(pname);
-                        rd.setHeading(heading);
-                        rd.setEmail(email);
-                        rd.setRating(rating);
-                        rd.setSpecification(specification);
-                        reff.child(String.valueOf(id+1)).setValue(rd);
-                    }
-                });
+                rd.setComment(comment);
+                rd.setPname(pname);
+                rd.setHeading(heading);
+                rd.setEmail(email);
+                rd.setRating(rating);
+                rd.setSpecification(specification);
+                reff.child(String.valueOf(id+1)).setValue(rd);
                 Intent i = new Intent(Review.this,ProfileActivity.class);
                 startActivity(i);
             }

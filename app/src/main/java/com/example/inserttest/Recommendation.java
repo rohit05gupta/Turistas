@@ -64,7 +64,6 @@ public class Recommendation extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 rec = dataSnapshot.getValue(UserData.class);
-                like = rec.getPOI();
                 separated = like.split(",");
                 mRecyclerView = findViewById(R.id.cycle);
                 mRecyclerView.setHasFixedSize(true);
