@@ -31,6 +31,7 @@ import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Recommendation extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
@@ -67,7 +68,16 @@ public class Recommendation extends AppCompatActivity {
                 public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                     rec = dataSnapshot.getValue(UserData.class);
                     like = rec.getPOI();
-                    separated = (String[])like.toArray(new String[like.size()]);
+
+                    separated = new String[like.size()];
+                    int i=0;
+
+                    //creating array of string using arraylist iterator
+                    Iterator<String> itr = like.iterator();
+                    while(itr.hasNext()){
+                        separated[i++] = itr.next();
+                    }
+
 
                     mRecyclerView = findViewById(R.id.cycle);
                     mRecyclerView.setHasFixedSize(true);
