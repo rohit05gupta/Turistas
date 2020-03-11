@@ -155,7 +155,6 @@ public class PlaceView extends AppCompatActivity implements OnMapReadyCallback, 
                 }
                 reff2 = FirebaseDatabase.getInstance().getReference("UserData");
                 reff2.child(rec.getId()).child(final_specification).setValue(count);
-
             }
 
             @Override

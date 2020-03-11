@@ -8,9 +8,18 @@ public class Model {
     String latitude;
     String longitude;
     String description;
-
+    int visited;
     String view;
     String rating;
+
+    public int getVisited() {
+        return visited;
+    }
+
+    public void setVisited(int visited) {
+        this.visited = visited;
+    }
+
 
     public String getRating() {
         return rating;

@@ -1,11 +1,9 @@
 package com.example.inserttest;
 
-import java.util.ArrayList;
-
 public class UserData {
     private String Name;
     private Long Phone;
-    private ArrayList POI;
+    private String POI;
     private String Email;
     private String Password;
     private int HillStation;
@@ -114,11 +112,11 @@ public class UserData {
         Phone = phone;
     }
 
-    public ArrayList getPOI() {
+    public String getPOI() {
         return POI;
     }
 
-    public void setPOI(ArrayList POI) {
+    public void setPOI(String POI) {
         this.POI = POI;
     }
 }

@@ -22,8 +22,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-
 import static android.text.TextUtils.isEmpty;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -76,40 +74,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttonRegister.setOnClickListener(this);
         textViewSignin.setOnClickListener(this);
     }
-
-    ArrayList<String> poi = new ArrayList<>();
-    public void onCheckboxClicked(View view) {
-        // Is the view now checked?
-        boolean checked = ((CheckBox) view).isChecked();
-
-        switch(view.getId()) {
-            case R.id.checkboxHillStation:
-                if (checked)
-                    poi.add("Hill Station");
-                break;
-            case R.id.checkboxMuseums:
-                if (checked)
-                    poi.add("Museums");
-                break;
-            case R.id.checkboxAdventure:
-                if (checked)
-                    poi.add("Adventure & Hiking");
-                break;
-            case R.id.checkboxForests:
-                if (checked)
-                    poi.add("Forests");
-                break;
-            case R.id.checkboxHistory:
-                if (checked)
-                    poi.add("Historical Place");
-                break;
-            case R.id.checkboxReligious:
-                if (checked)
-                    poi.add("Religious Destinations");
-                break;
-        }
-    }
-
+    String POI ="";
     private void registerUser(){
         final String name = editTextName.getText().toString().trim();
         final Long phone = Long.parseLong(editTextPhone.getText().toString().trim());
@@ -156,7 +121,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             user.setId(id);
                             user.setName(name);
                             user.setPhone(phone);
-                            user.setPOI(poi);
+                            user.setPOI(POI);
                             user.setEmail(email);
                             user.setPassword(password);
                             user.setAdventureAndHiking(0);
@@ -178,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         progressDialog.dismiss();
     }
 
-    /*public void onCheckboxClicked(View view) {
+    public void onCheckboxClicked(View view) {
         // Is the view now checked?
         boolean checked = ((CheckBox) view).isChecked();
 
@@ -212,7 +177,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     POI = POI+"ReligiousDestination,";
                 break;
         }
-    }*/
+    }
 
     @Override
     public void onClick(View v) {

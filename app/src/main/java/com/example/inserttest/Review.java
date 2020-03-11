@@ -1,11 +1,13 @@
 package com.example.inserttest;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +15,7 @@ import android.widget.RatingBar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -26,13 +29,19 @@ public class Review extends AppCompatActivity {
     DatabaseReference reff;
     ReviewData rd;
     Button b1;
-    long id=0;
+    String id;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Review");
+
+        firebaseAuth = FirebaseAuth.getInstance();
+        if (firebaseAuth.getCurrentUser() == null) {
+            finish();
+            startActivity(new Intent(this, LoginActivity.class));
+        }
 
         ed1 = (EditText)findViewById(R.id.heading);
         ed2 = (EditText)findViewById(R.id.comment);
@@ -50,7 +59,6 @@ public class Review extends AppCompatActivity {
         String specification = getIntent().getStringExtra("specification");
         String pname = getIntent().getStringExtra("pname");
 
-        rd = new ReviewData();
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,28 +68,18 @@ public class Review extends AppCompatActivity {
                 float rating = r1.getRating();
 
                 reff = FirebaseDatabase.getInstance().getReference().child("Reviews");
-                reff.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        if(dataSnapshot.exists())
-                            id = (dataSnapshot.getChildrenCount());
-                    }
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                    }
-                });
+                rd = new ReviewData();
                 rd.setComment(comment);
                 rd.setPname(pname);
                 rd.setHeading(heading);
                 rd.setEmail(email);
                 rd.setRating(rating);
                 rd.setSpecification(specification);
-                reff.child(String.valueOf(id+1)).setValue(rd);
+                reff.push().setValue(rd);
+
                 Intent i = new Intent(Review.this,ProfileActivity.class);
                 startActivity(i);
             }
-
         });
-
     }
 }

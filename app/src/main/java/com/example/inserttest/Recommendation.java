@@ -64,23 +64,24 @@ public class Recommendation extends AppCompatActivity {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                 rec = dataSnapshot.getValue(UserData.class);
+                like = rec.getPOI();
                 separated = like.split(",");
+
                 mRecyclerView = findViewById(R.id.cycle);
                 mRecyclerView.setHasFixedSize(true);
+
+
                 reff = FirebaseDatabase.getInstance().getReference().child("Places");
                 Query q = FirebaseDatabase.getInstance().getReference("Places")
-                        .orderByChild("specification");
+                        .orderByChild("specification")
+                        .equalTo(separated[0]);
 
                 options = new FirebaseRecyclerOptions.Builder<Model>().setQuery(q, Model.class).build();
                 adapter = new FirebaseRecyclerAdapter<Model, ViewHolder>(options) {
                     @Override
                     protected void onBindViewHolder(@NonNull ViewHolder holder, int position, @NonNull Model model) {
-                        for(int i=0;i<separated.length;i++){
-                            if(model.getSpecification().equals(separated[i])) {
-                                holder.t1.setText(model.getName());
-                                holder.t2.setText(model.getSpecification());
-                            }
-                        }
+                        holder.t1.setText(model.getName());
+                        holder.t2.setText(model.getSpecification());
                     }
 
                     @NonNull
@@ -99,30 +100,20 @@ public class Recommendation extends AppCompatActivity {
 
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
             }
-
             @Override
             public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
             }
-
             @Override
             public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("Recommendation");
-
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
