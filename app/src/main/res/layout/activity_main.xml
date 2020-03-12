@@ -5,163 +5,117 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
-        <LinearLayout
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <TextView
-                android:textAlignment="center"
-                android:text="Registration"
-                android:id="@+id/textViewSignup"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter Your Name"
-                android:layout_margin="15dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <fragment
+        android:id="@+id/mapFragment"
+        android:name="com.tomtom.online.sdk.map.MapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_none"
+        app:layout_constraintBottom_toTopOf="@+id/layout_edittext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/editTextName"
-                    android:inputType="text"/>
-            </com.google.android.material.textfield.TextInputLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="@dimen/size_none"
+        android:layout_height="@dimen/layout_height_xxlarge"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter Your Mobile Number"
-                android:layout_margin="15dp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <ImageButton
+            android:id="@+id/btn_main_gasstation"
+            android:layout_width="@dimen/size_none"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:contentDescription="@string/gas_station_button_description"
+            android:src="@drawable/ic_btn_gasstation" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="phone"
-                    android:id="@+id/editTextPhone"/>
-            </com.google.android.material.textfield.TextInputLayout>
+        <ImageButton
+            android:id="@+id/btn_main_restaurant"
+            android:layout_width="@dimen/size_none"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:contentDescription="@string/restaurant_button_description"
+            android:src="@drawable/ic_btn_restaurant" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_margin="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter Your Email"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <ImageButton
+            android:id="@+id/btn_main_atm"
+            android:layout_width="@dimen/size_none"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/white"
+            android:contentDescription="@string/atm_button_description"
+            android:src="@drawable/ic_btn_atm" />
+    </LinearLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textEmailAddress"/>
-            </com.google.android.material.textfield.TextInputLayout>
+    <Button
+        android:id="@+id/btn_main_help"
+        android:layout_width="@dimen/rounded_button_size"
+        android:layout_height="@dimen/rounded_button_size"
+        android:layout_marginEnd="@dimen/spacing_small"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:adjustViewBounds="true"
+        android:background="@drawable/bg_circular_button"
+        android:text="@string/question_mark"
+        android:textSize="@dimen/text_size_large"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_margin="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Enter Your Password"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+    <ImageButton
+        android:id="@+id/btn_main_clear"
+        android:clickable="false"
+        android:focusable="false"
+        android:layout_width="@dimen/rounded_button_size"
+        android:layout_height="@dimen/rounded_button_size"
+        android:layout_marginEnd="@dimen/spacing_small"
+        android:layout_marginTop="@dimen/spacing_small"
+        android:background="@drawable/bg_circular_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_main_help"
+        android:src="@drawable/ic_btn_trash"/>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/editTextPass"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="textPassword"/>
-            </com.google.android.material.textfield.TextInputLayout>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout_edittext"
+        android:layout_width="@dimen/size_none"
+        android:layout_height="@dimen/layout_height_xlarge"
+        android:background="@drawable/bg_border"
+        android:paddingBottom="@dimen/spacing_small"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
 
-            <TextView
-                android:layout_margin="15dp"
-                android:id="@+id/textViewPOI"
-                android:text="Select Your Place of Interest"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+        <EditText
+            android:id="@+id/edittext_main_poisearch"
+            android:layout_width="@dimen/size_none"
+            android:layout_height="@dimen/size_none"
+            android:layout_marginStart="@dimen/spacing_small"
+            android:background="@android:color/transparent"
+            android:hint="@string/poisearch_hint"
+            android:imeOptions="actionSearch"
+            android:textSize="@dimen/text_size_normal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_main_poisearch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:inputType="text" />
 
-            <CheckBox
-                android:layout_margin="15dp"
-                android:id="@+id/checkboxHillStation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Hill Station"
-                android:onClick="onCheckboxClicked"/>
-
-            <CheckBox
-                android:layout_margin="15dp"
-                android:id="@+id/checkboxMuseums"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Museums"
-                android:onClick="onCheckboxClicked"/>
-
-            <CheckBox
-                android:layout_margin="15dp"
-                android:id="@+id/checkboxAdventure"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Adventure and Hiking"
-                android:onClick="onCheckboxClicked"/>
-
-            <CheckBox
-                android:layout_margin="15dp"
-                android:id="@+id/checkboxForests"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Forests"
-                android:onClick="onCheckboxClicked"/>
-
-            <CheckBox
-                android:layout_margin="15dp"
-                android:id="@+id/checkboxHistory"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Historical Place"
-                android:onClick="onCheckboxClicked"/>
-
-            <CheckBox
-                android:layout_margin="15dp"
-                android:id="@+id/checkboxBeach"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Beach"
-                android:onClick="onCheckboxClicked"/>
-
-            <CheckBox
-                android:layout_margin="15dp"
-                android:id="@+id/checkboxReligious"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Religious Destinations"
-                android:onClick="onCheckboxClicked"/>
-
-
-            <com.google.android.material.button.MaterialButton
-                android:layout_margin="15dp"
-                android:id="@+id/buttonRegister"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Register"
-                android:textSize="38px"
-                app:cornerRadius="16dp"
-                app:icon="@drawable/ic_check_circle_black_24dp"/>
-
-            <TextView
-                android:textAlignment="center"
-                android:text="Alredy registered? Sign in here"
-                android:id="@+id/textViewSignin"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-
-        </LinearLayout>
-
-    </ScrollView>
+        <ImageButton
+            android:id="@+id/btn_main_poisearch"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_none"
+            android:layout_marginEnd="@dimen/spacing_small"
+            android:layout_marginTop="@dimen/spacing_xtiny"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_magnifier" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

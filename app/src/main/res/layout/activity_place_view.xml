@@ -15,7 +15,7 @@
         mapbox:layout_constraintTop_toTopOf="parent"
         mapbox:mapbox_cameraTargetLat="20.5937"
         mapbox:mapbox_cameraTargetLng="78.9629"
-        mapbox:mapbox_cameraZoom="30" />
+        mapbox:mapbox_cameraZoom="10" />
 
     <Button
         android:id="@+id/startButton"

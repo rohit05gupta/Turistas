@@ -94,6 +94,16 @@ public class PlaceDetail extends AppCompatActivity {
                         startActivity(i);
                     }
                 });
+                holder.b3.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent i = new Intent(PlaceDetail.this,MainActivity.class);
+                        i.putExtra("latitude",lat);
+                        i.putExtra("longitude",lon);
+                        startActivity(i);
+                    }
+                });
             }
             @NonNull
             @Override

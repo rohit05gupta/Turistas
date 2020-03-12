@@ -10,4 +10,24 @@
     <string name="drawerOpen">drawerOpen</string>
     <string name="drawerClose">drawerClose</string>
     <string name="menu">menu</string>
+
+
+    <string name="add_to_my_route">Add to my route</string>
+    <string name="poi_edit_text_title">Gas Station</string>
+    <string name="poi_name_key">poiName</string>
+    <string name="address_key">address</string>
+    <string name="search_along_a_route_help">Long click on the map to choose the start and end points of your route. Long click again to remove your route and start over.\n\n
+        Search for names or categories of points of interest to add to your route, or choose a result from one from our default categories.\n\n
+        Happy coding\nTT DevRel Team</string>
+    <string name="search_along_a_route_help_title">Search along\na route</string>
+    <string name="poisearch_hint">Kind of place to add to your route</string>
+    <string name="gas_station_button_description">Gas station</string>
+    <string name="restaurant_button_description">Restaurant</string>
+    <string name="atm_button_description">ATM</string>
+    <string name="question_mark">\?</string>
+    <string name="title_activity_help">HelpActivity</string>
+    <string name="geocode_no_results">No geocoder results. Choose different location and try again.</string>
+    <string name="waiting_for_results">Waiting for results…</string>
+    <string name="no_search_results">No search results for \'%1$s\'. Please try another search term.</string>
+    <string name="api_response_error">API response error: \'%1$s\'.</string>
 </resources>

@@ -31,4 +31,8 @@
     <color name="mapboxPink">#ee4e8b</color>
     <color name="mapboxYellow">#d9d838</color>
     <color name="mapboxRed">#b43b71</color>
+
+    <color name="bg_border_color">#797979</color>
+    <color name="bg_balloon_button_color">#C3D552</color>
+    <color name="bg_help_activity">#F2F2F2</color>
 </resources>

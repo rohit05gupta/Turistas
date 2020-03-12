@@ -29,4 +29,16 @@
         <item name="navigationViewAccent">@color/mapboxPink</item>
     </style>
 
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="CenterOnCurrentLocationView" parent="BaseCompactView">
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="android:layout_marginEnd">@dimen/spacing_small</item>
+        <item name="android:layout_marginBottom">@dimen/spacing_large</item>
+    </style>
+
+
 </resources>

@@ -13,7 +13,7 @@ public class ViewHolder2 extends RecyclerView.ViewHolder {
 
     public TextView t1,t2,t3,t4,t5;
     public ImageView i1;
-    public Button b1,b2;
+    public Button b1,b2,b3;
     //View mView;
     public ViewHolder2(View itemView){
         super(itemView);
@@ -28,6 +28,7 @@ public class ViewHolder2 extends RecyclerView.ViewHolder {
 
         b1 = (Button)itemView.findViewById(R.id.visit);
         b2 = (Button)itemView.findViewById(R.id.review);
+        b3 = (Button)itemView.findViewById(R.id.nearby);
     }
 
 

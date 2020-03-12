@@ -111,6 +111,16 @@
                 android:textColor="#212121"
                 android:background="@color/colorPrimaryDark1"
                 />
+
+            <Button
+                android:layout_marginTop="10dp"
+                android:id="@+id/nearby"
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:text="Write Review"
+                android:textColor="#212121"
+                android:background="@color/colorPrimaryDark1"
+                />
         </LinearLayout>
     </LinearLayout>
 </androidx.cardview.widget.CardView>
