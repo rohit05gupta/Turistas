@@ -88,16 +88,12 @@ public class PlaceView extends AppCompatActivity implements OnMapReadyCallback, 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        Mapbox.getInstance(this, getString(R.string.access_token));
         setContentView(R.layout.activity_place_view);
-        mapView = findViewById(R.id.mapView);
+
         String lat = getIntent().getStringExtra("latitude");
         String lon = getIntent().getStringExtra("longitude");
         latitude = Double.parseDouble(lat);
         longitude = Double.parseDouble(lon);
-        mapView.onCreate(savedInstanceState);
-        mapView.getMapAsync(this);
 
         String specification = getIntent().getStringExtra("specification");
 
@@ -177,6 +173,10 @@ public class PlaceView extends AppCompatActivity implements OnMapReadyCallback, 
 
             }
         });
+        Mapbox.getInstance(this, getString(R.string.access_token));
+        mapView = findViewById(R.id.mapView);
+        mapView.onCreate(savedInstanceState);
+        mapView.getMapAsync(this);
     }
     @Override
     public void onMapReady(@NonNull final MapboxMap mapboxMap) {

@@ -1,5 +1,4 @@
 package com.example.inserttest;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -32,6 +31,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide();
 
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -88,7 +88,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
         if(v == textViewSignup){
             finish();
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, RegistrationActivity.class));
         }
     }
 }

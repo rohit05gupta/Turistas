@@ -64,10 +64,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     private ImageButton btnSearch;
     private EditText editTextPois;
     private Dialog dialogInProgress;
+    double latitude,longitude;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        String lat = getIntent().getStringExtra("latitude");
+        String lon = getIntent().getStringExtra("longitude");
+        latitude = Double.parseDouble(lat);
+        longitude = Double.parseDouble(lon);
         initTomTomServices();
         initUIViews();
         setupUIViewListeners();
@@ -110,7 +115,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     }
                 });
         //Destination
-        searchApi.reverseGeocoding(new ReverseGeocoderSearchQueryBuilder(18.7557, 73.4091).build())
+        searchApi.reverseGeocoding(new ReverseGeocoderSearchQueryBuilder(latitude, longitude).build())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DisposableSingleObserver<ReverseGeocoderSearchResponse>() {

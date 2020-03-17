@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HelpActivity"></activity>
+        <activity android:name=".RegistrationActivity"></activity>
+        <activity android:name=".HelpActivity" />
 
         <meta-data
             android:name="OnlineMaps.Key"
@@ -34,7 +35,7 @@
         <activity android:name=".Display" />
         <activity android:name=".ProfileActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".RegistrationActivity">
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
