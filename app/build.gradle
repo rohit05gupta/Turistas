@@ -73,4 +73,5 @@ dependencies {
     implementation 'com.tomtom.online:sdk-routing:2.4369'
     implementation 'com.tomtom.online:sdk-search:2.4369'
     implementation 'com.tomtom.online:sdk-maps-ui-extensions:2.4369'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
 }

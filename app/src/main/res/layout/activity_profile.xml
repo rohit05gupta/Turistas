@@ -7,45 +7,60 @@
     tools:context=".ProfileActivity">
 
     <LinearLayout
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="#4BB882"
         android:orientation="vertical">
 
         <TextView
-            android:textAlignment="center"
-            android:text="Welcome User"
             android:id="@+id/textViewUserEmail"
-            android:textAppearance="?android:attr/textAppearanceLarge"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="150dp"
+            android:text="Welcome User"
+            android:textAlignment="center"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
 
-        <Button
-            android:layout_margin="15dp"
-            android:id="@+id/displayplaces"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Display Places" />
-
-        <Button
-            android:layout_margin="15dp"
-            android:id="@+id/recommendation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Recommendation" />
-
-        <Button
-            android:layout_margin="15dp"
-            android:id="@+id/buttonLogout"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Logout" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/img"/>
     </LinearLayout>
+
+    <GridLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:columnCount="3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <Button
+            android:id="@+id/displayplaces"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:elevation="30dp"
+            android:text="Places"/>
+
+        <Button
+            android:id="@+id/recommendation"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:elevation="30dp"
+            android:text="Recommendation"/>
+
+        <Button
+            android:id="@+id/buttonLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:elevation="30dp"
+            android:text="Logout"/>
+    </GridLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
