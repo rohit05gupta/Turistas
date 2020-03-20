@@ -5,17 +5,22 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.cardview.widget.CardView;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.transition.AutoTransition;
+import android.transition.TransitionManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,10 +41,71 @@ public class PlaceDetail extends AppCompatActivity {
 
     FirebaseRecyclerOptions<Model> options;
     FirebaseRecyclerAdapter<Model,ViewHolder2> adapter;
+
+    //Place Detail CardView
+    CardView cardView;
+    ConstraintLayout expandableView1, expandableView2, expandableView3;
+    Button arrowBtn1, arrowBtn2, arrowBtn3;
+
+    public void expand1(View view){
+        expandableView1 = findViewById(R.id.expandableView1);
+        arrowBtn1 = findViewById(R.id.arrowBtn1);
+        cardView = findViewById(R.id.cardView);
+        if(expandableView1.getVisibility()==View.GONE){
+            TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
+            expandableView1.setVisibility(View.VISIBLE);
+            arrowBtn1.setBackgroundResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
+        }else{
+            TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
+            expandableView1.setVisibility(View.GONE);
+            arrowBtn1.setBackgroundResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
+        }
+    }
+
+    public void expand2(View view){
+        expandableView2 = findViewById(R.id.expandableView2);
+        arrowBtn2 = findViewById(R.id.arrowBtn2);
+        cardView = findViewById(R.id.cardView);
+        if(expandableView2.getVisibility()==View.GONE){
+            TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
+            expandableView2.setVisibility(View.VISIBLE);
+            arrowBtn2.setBackgroundResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
+        }else{
+            TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
+            expandableView2.setVisibility(View.GONE);
+            arrowBtn2.setBackgroundResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
+        }
+    }
+
+    public void expand3(View view){
+        expandableView3 = findViewById(R.id.expandableView3);
+        arrowBtn3 = findViewById(R.id.arrowBtn3);
+        cardView = findViewById(R.id.cardView);
+        if(expandableView3.getVisibility()==View.GONE){
+            TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
+            expandableView3.setVisibility(View.VISIBLE);
+            arrowBtn3.setBackgroundResource(R.drawable.ic_keyboard_arrow_up_black_24dp);
+        }else{
+            TransitionManager.beginDelayedTransition(cardView, new AutoTransition());
+            expandableView3.setVisibility(View.GONE);
+            arrowBtn3.setBackgroundResource(R.drawable.ic_keyboard_arrow_down_black_24dp);
+        }
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_detail);
+
+        /*arrowBtn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });*/
+
+
         String pname = getIntent().getStringExtra("placename");
         ActionBar actionBar = getSupportActionBar();
         actionBar.setTitle("List Of Places");

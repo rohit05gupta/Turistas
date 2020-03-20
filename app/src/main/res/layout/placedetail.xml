@@ -1,139 +1,271 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#fff"
-    app:contentPadding="15dp"
-    app:cardUseCompatPadding="true">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:background="@layout/image_border">
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:id="@+id/image"
-            android:scaleType="center"
-            android:adjustViewBounds="true"
-            />
-        <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".PlaceDetail">
+
+        <androidx.cardview.widget.CardView
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Title\n"
-                android:textColor="#000"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:textAlignment="center"/>
-            <TextView
-                android:id="@+id/specification"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Title\n"
-                android:textColor="#000"
-                android:textSize="25sp"
-                android:textStyle="bold"
-                android:textAlignment="center"/>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#b0bec5"/>
-            <TextView
-                android:layout_marginTop="7dp"
-                android:textSize="20dp"
-                android:id="@+id/hdescription"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Description"
-                android:textStyle="bold" />
+            android:background="#fff"
+            app:contentPadding="15dp"
+            app:cardUseCompatPadding="true"
+            android:id="@+id/cardView">
 
-            <TextView
-                android:layout_marginTop="7dp"
-                android:id="@+id/description"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="Description"
-                android:textColor="#212121"/>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#b0bec5"/>
-            <TextView
-                android:layout_marginTop="7dp"
-                android:textSize="20dp"
-                android:id="@+id/hview"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="View"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_marginTop="7dp"
-                android:id="@+id/view"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="view"
-                android:textColor="#212121"/>
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:id="@+id/image"
+                    android:scaleType="center"
+                    android:adjustViewBounds="true" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#b0bec5"/>
-            <TextView
-                android:layout_marginTop="7dp"
-                android:textSize="20dp"
-                android:id="@+id/hreach"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="HowToReach"
-                android:textStyle="bold" />
-            <TextView
-                android:layout_marginTop="7dp"
-                android:id="@+id/reach"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="view"
-                android:textColor="#212121"/>
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Title\n"
+                    android:textColor="#000"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@+id/image"/>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="2dp"
-                android:background="#b0bec5"/>
-            <Button
-                android:layout_marginTop="10dp"
-                android:id="@+id/visit"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:text="Visit Place"
-                android:textColor="#212121"
-                android:background="@color/colorPrimaryDark1"
-                />
-            <Button
-                android:layout_marginTop="10dp"
-                android:id="@+id/review"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:text="Write Review"
-                android:textColor="#212121"
-                android:background="@color/colorPrimaryDark1"
-                />
-            <Button
-                android:layout_marginTop="10dp"
-                android:id="@+id/nearby"
-                android:layout_height="match_parent"
-                android:layout_width="match_parent"
-                android:text="Near By Places"
-                android:textColor="#212121"
-                android:background="@color/colorPrimaryDark1"
-                />
-        </LinearLayout>
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+                <TextView
+                    android:id="@+id/specification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Title\n"
+                    android:textColor="#000"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@id/name"/>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/firstCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/specification">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/hdescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:text="Description"
+                            android:textSize="20dp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/arrowBtn1"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
+                            android:onClick="expand1"
+                            android:visibility="visible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/expandableView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/hdescription"
+                            tools:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/description"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="7dp"
+                                android:text="Description"
+                                android:textColor="#212121" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/secondCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/firstCard">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/hview"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="View"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            tools:layout_editor_absoluteX="-2dp"
+                            tools:layout_editor_absoluteY="4dp" />
+
+                        <Button
+                            android:id="@+id/arrowBtn2"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
+                            android:onClick="expand2"
+                            android:visibility="visible"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/expandableView2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/hview"
+                            tools:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="7dp"
+                                android:text="view"
+                                android:textColor="#212121" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/thirdCard"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    app:cardCornerRadius="5dp"
+                    app:cardElevation="10dp"
+                    app:layout_constraintTop_toBottomOf="@+id/secondCard">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <TextView
+                            android:id="@+id/hreach"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="HowToReach"
+                            android:textSize="20dp"
+                            android:textStyle="bold"
+                            tools:layout_editor_absoluteX="0dp"
+                            tools:layout_editor_absoluteY="4dp" />
+
+                        <Button
+                            android:id="@+id/arrowBtn3"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:layout_marginEnd="8dp"
+                            android:background="@drawable/ic_keyboard_arrow_down_black_24dp"
+                            android:onClick="expand3"
+                            android:visibility="visible"
+                            app:layout_constraintEnd_toEndOf="parent" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/expandableView3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/hreach"
+                            tools:visibility="gone">
+
+                            <TextView
+                                android:id="@+id/reach"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="7dp"
+                                android:text="view"
+                                android:textColor="#212121" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/visit"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorPrimaryDark1"
+            android:text="Visit Place"
+            android:textColor="#212121"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+        <Button
+            android:id="@+id/review"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorPrimaryDark1"
+            android:text="Write Review"
+            android:textColor="#212121"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/visit" />
+
+        <Button
+            android:id="@+id/nearby"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorPrimaryDark1"
+            android:text="Near By Places"
+            android:textColor="#212121"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/review" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
