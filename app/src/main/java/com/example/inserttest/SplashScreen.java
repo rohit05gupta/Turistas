@@ -5,6 +5,8 @@ import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.TextView;
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -20,6 +22,12 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_splash_screen);
+
+        //Splash Screen Animation
+        TextView splashText = findViewById(R.id.splashTextView);
+
+        splashText.animate().alpha(1f).setDuration(2700);
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {

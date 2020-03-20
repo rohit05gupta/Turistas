@@ -25,6 +25,9 @@
         <meta-data
             android:name="OnlineRouting.Key"
             android:value="AzUbkqlE7m7IZHyS2s1jQAN6LnEHgmHp" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".MainActivity" />
         <activity android:name=".Review" />
