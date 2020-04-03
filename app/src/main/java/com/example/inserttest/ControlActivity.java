@@ -48,7 +48,6 @@ public class ControlActivity extends AppCompatActivity implements NavigationView
         toolbar = findViewById(R.id.toolbar);
         navigationView = findViewById(R.id.navigationView);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setLogo(R.mipmap.ic_launcher);
         getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         toggle = new ActionBarDrawerToggle(ControlActivity.this,drawerLayout,toolbar,R.string.drawerOpen,R.string.drawerClose);
@@ -83,6 +82,7 @@ public class ControlActivity extends AppCompatActivity implements NavigationView
         switch(menuItem.getItemId()){
             case R.id.home:
                 Toast.makeText(ControlActivity.this,"Home Selected",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), PostsListActivity.class));
                 break;
             case R.id.profile:
                 Toast.makeText(ControlActivity.this,"Profile Selected",Toast.LENGTH_LONG).show();

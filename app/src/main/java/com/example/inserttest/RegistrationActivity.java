@@ -53,7 +53,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
         if(firebaseAuth.getCurrentUser() != null){
             finish();
-            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+            startActivity(new Intent(getApplicationContext(), PostsListActivity.class));
         }
 
         ref = FirebaseDatabase.getInstance().getReference().child("UserData");
