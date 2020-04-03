@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/home"
+        android:title="Home"
+        android:icon="@drawable/profile_vector"/>
+
+    <item
+        android:id="@+id/profile"
+        android:title="Profile"
+        android:icon="@drawable/profile_vector"/>
+
+    <item
+        android:id="@+id/location"
+        android:title="My Current Location"
+        android:icon="@drawable/ic_location_on_black_24dp"/>
+
+    <item
+        android:id="@+id/directions"
+        android:title="Directions"
+        android:icon="@drawable/direction_vector"/>
+
+    <item
+        android:id="@+id/nearby"
+        android:title="Near By Places"
+        android:icon="@drawable/direction_vector"/>
+
+    <item
+        android:id="@+id/recommendation"
+        android:title="Recommendations"
+        android:icon="@drawable/recommendation_vetor"/>
+
+    <item
+        android:id="@+id/logout"
+        android:title="Logout"
+        android:icon="@drawable/logout_vector"/>
+</menu>

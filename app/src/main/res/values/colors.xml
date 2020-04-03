@@ -23,16 +23,9 @@
     <color name="c1">#65c69d</color>
     <color name="c2">#666f78</color>
     <color name="c3">#353e47</color>
-    <color name="card_view_color">#f5f5f5</color>
-
-    <color name="mapboxWhite">#ffffff</color>
-    <color name="mapboxBlue">#4264fb</color>
-    <color name="mapboxGrayLight">#c6d2e1</color>
-    <color name="mapboxPink">#ee4e8b</color>
-    <color name="mapboxYellow">#d9d838</color>
-    <color name="mapboxRed">#b43b71</color>
 
     <color name="bg_border_color">#797979</color>
     <color name="bg_balloon_button_color">#C3D552</color>
     <color name="bg_help_activity">#F2F2F2</color>
+
 </resources>

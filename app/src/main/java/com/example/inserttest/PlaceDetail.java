@@ -35,7 +35,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
-public class PlaceDetail extends AppCompatActivity {
+public class PlaceDetail extends ControlActivity {
     RecyclerView mRecyclerView;
     DatabaseReference reff;
 
@@ -97,6 +97,8 @@ public class PlaceDetail extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_detail);
+
+        super.onCreateDrawer();
 
         /*arrowBtn1.setOnClickListener(new View.OnClickListener() {
             @Override

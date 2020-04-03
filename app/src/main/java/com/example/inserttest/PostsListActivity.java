@@ -33,7 +33,7 @@ import com.squareup.picasso.Picasso;
 
 import java.io.Console;
 
-public class PostsListActivity extends AppCompatActivity {
+public class PostsListActivity extends ControlActivity {
     RecyclerView mRecyclerView;
     DatabaseReference reff;
 
@@ -43,8 +43,11 @@ public class PostsListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posts_list);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("List Of Places");
+        super.onCreateDrawer();
+
+        //ActionBar actionBar = getSupportActionBar();
+        //actionBar.setTitle("List Of Places");
+
         mRecyclerView = findViewById(R.id.cycle);
         mRecyclerView.setHasFixedSize(true);
         reff = FirebaseDatabase.getInstance().getReference().child("Places");
