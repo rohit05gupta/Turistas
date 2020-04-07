@@ -25,6 +25,9 @@ import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
@@ -37,6 +40,7 @@ public class PostsListActivity extends ControlActivity {
     RecyclerView mRecyclerView;
     DatabaseReference reff;
 
+    TextView hemail;
     FirebaseRecyclerOptions<Model> options;
     FirebaseRecyclerAdapter<Model,ViewHolder> adapter;
     @Override
@@ -44,9 +48,9 @@ public class PostsListActivity extends ControlActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posts_list);
         super.onCreateDrawer();
-
         //ActionBar actionBar = getSupportActionBar();
         //actionBar.setTitle("List Of Places");
+
 
         mRecyclerView = findViewById(R.id.cycle);
         mRecyclerView.setHasFixedSize(true);

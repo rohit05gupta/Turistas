@@ -39,7 +39,6 @@ public class ControlActivity extends AppCompatActivity implements NavigationView
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_control);
-
         onCreateDrawer();
     }
     protected void onCreateDrawer(){
@@ -53,6 +52,16 @@ public class ControlActivity extends AppCompatActivity implements NavigationView
         toggle = new ActionBarDrawerToggle(ControlActivity.this,drawerLayout,toolbar,R.string.drawerOpen,R.string.drawerClose);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        //header email display
+        FirebaseAuth mAuth;
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
+        NavigationView navigationView = (NavigationView) findViewById(R.id.navigationView);
+        View headerView = navigationView.getHeaderView(0);
+        TextView navUsername = (TextView) headerView.findViewById(R.id.hemail);
+        navUsername.setText(user.getEmail());
+
 
         navigationView.setNavigationItemSelectedListener(this);
     }

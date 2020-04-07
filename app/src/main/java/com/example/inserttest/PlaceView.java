@@ -1,25 +1,6 @@
 package com.example.inserttest;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.util.Log;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.ChildEventListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.location.Location;
 import android.os.Bundle;
@@ -67,15 +48,13 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 import com.mapbox.services.android.navigation.ui.v5.NavigationLauncher;
 
-public class PlaceView extends AppCompatActivity implements OnMapReadyCallback, PermissionsListener{
-    private FirebaseAuth firebaseAuth;
-    DatabaseReference reff,reff2;
-    UserData rec;
 
+public class PlaceView extends ControlActivity implements OnMapReadyCallback,PermissionsListener {
     private MapView mapView;
     private MapboxMap mapboxMap;
     private PermissionsManager permissionsManager;
@@ -89,95 +68,13 @@ public class PlaceView extends AppCompatActivity implements OnMapReadyCallback, 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_view);
-
-        String lat = getIntent().getStringExtra("latitude");
-        String lon = getIntent().getStringExtra("longitude");
-        latitude = Double.parseDouble(lat);
-        longitude = Double.parseDouble(lon);
-
-        String specification = getIntent().getStringExtra("specification");
-
-        final String final_specification = specification.substring(0, 1).toLowerCase() + specification.substring(1);
-
-        firebaseAuth = FirebaseAuth.getInstance();
-        if (firebaseAuth.getCurrentUser() == null) {
-            finish();
-            startActivity(new Intent(this, LoginActivity.class));
-        }
-
-        FirebaseUser user = firebaseAuth.getCurrentUser();
-        String email = user.getEmail();
-        reff2 = FirebaseDatabase.getInstance().getReference("UserData");
-        reff2.orderByChild("email").equalTo(email).addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                rec = dataSnapshot.getValue(UserData.class);
-
-                int count = 100;
-                if(final_specification.equals("hillStation")) {
-                    count = rec.getHillStation();
-                    count++;
-                    rec.setHillStation(count);
-                }
-                if(final_specification.equals("museum")) {
-                    count = rec.getMuseum();
-                    count++;
-                    rec.setMuseum(count);
-                }
-                if(final_specification.equals("adventureAndHiking")) {
-                    count = rec.getAdventureAndHiking();
-                    count++;
-                    rec.setAdventureAndHiking(count);
-                }
-                if(final_specification.equals("forest")) {
-                    count = rec.getForest();
-                    count++;
-                    rec.setForest(count);
-                }
-                if(final_specification.equals("historicalPlace")) {
-                    count = rec.getHistoricalPlace();
-                    count++;
-                    rec.setHistoricalPlace(count);
-                }
-                if(final_specification.equals("beach")) {
-                    count = rec.getBeach();
-                    count++;
-                    rec.setBeach(count);
-                }
-                if(final_specification.equals("religiousDestination")) {
-                    count = rec.getReligiousDestination();
-                    count++;
-                    rec.setReligiousDestination(count);
-                }
-                reff2 = FirebaseDatabase.getInstance().getReference("UserData");
-                reff2.child(rec.getId()).child(final_specification).setValue(count);
-            }
-
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
+        super.onCreateDrawer();
         Mapbox.getInstance(this, getString(R.string.access_token));
         mapView = findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);
     }
+
     @Override
     public void onMapReady(@NonNull final MapboxMap mapboxMap) {
         this.mapboxMap = mapboxMap;

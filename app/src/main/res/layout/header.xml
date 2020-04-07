@@ -20,17 +20,17 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Parth Shah"
+            android:text="xyz@gmail.com"
             android:paddingLeft="12dp"
-            android:id="@+id/uname"
+            android:id="@+id/hemail"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-
+<!--
         <TextView
             android:paddingLeft="12dp"
             android:id="@+id/uemail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="abc@gmail.com" />
-
+-->
     </LinearLayout>
 </LinearLayout>

@@ -27,6 +27,8 @@ public class ProfileActivity extends ControlActivity{
         FirebaseUser user = mAuth.getCurrentUser();
         textName.setText(user.getDisplayName());
         textEmail.setText(user.getEmail());
+
+
     }
     @Override
     protected void onStart() {

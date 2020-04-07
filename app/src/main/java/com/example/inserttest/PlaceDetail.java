@@ -38,10 +38,8 @@ import com.squareup.picasso.Picasso;
 public class PlaceDetail extends ControlActivity {
     RecyclerView mRecyclerView;
     DatabaseReference reff;
-
     FirebaseRecyclerOptions<Model> options;
     FirebaseRecyclerAdapter<Model,ViewHolder2> adapter;
-
     //Place Detail CardView
     CardView cardView;
     ConstraintLayout expandableView1, expandableView2, expandableView3;
@@ -97,20 +95,8 @@ public class PlaceDetail extends ControlActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_detail);
-
         super.onCreateDrawer();
-
-        /*arrowBtn1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });*/
-
-
         String pname = getIntent().getStringExtra("placename");
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("List Of Places");
         mRecyclerView = findViewById(R.id.cycle);
         mRecyclerView.setHasFixedSize(true);
         reff = FirebaseDatabase.getInstance().getReference().child("Places");
@@ -141,17 +127,6 @@ public class PlaceDetail extends ControlActivity {
                 final String lat = model.getLatitude();
                 final String lon = model.getLongitude();
                 final String name = model.getName();
-                holder.b1.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick(View v) {
-
-                        Intent i = new Intent(PlaceDetail.this,PlaceView.class);
-                        i.putExtra("specification",specification);
-                        i.putExtra("latitude",lat);
-                        i.putExtra("longitude",lon);
-                        startActivity(i);
-                    }
-                });
                 holder.b2.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {

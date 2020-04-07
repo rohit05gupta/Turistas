@@ -228,7 +228,7 @@
         </androidx.cardview.widget.CardView>
 
         <Button
-            android:id="@+id/visit"
+            android:id="@+id/nearby"
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_marginTop="20dp"
@@ -251,20 +251,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/visit" />
-
-        <Button
-            android:id="@+id/nearby"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/colorPrimaryDark1"
-            android:text="Near By Places"
-            android:textColor="#212121"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/review" />
+            app:layout_constraintTop_toBottomOf="@+id/nearby" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

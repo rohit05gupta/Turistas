@@ -22,7 +22,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Review extends AppCompatActivity {
+public class Review extends ControlActivity {
     private FirebaseAuth firebaseAuth;
     EditText ed1,ed2;
     RatingBar r1;
@@ -34,9 +34,7 @@ public class Review extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review);
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Review");
-
+        super.onCreateDrawer();
         firebaseAuth = FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser() == null) {
             finish();
