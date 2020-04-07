@@ -16,11 +16,14 @@
             android:background="#fff"
             app:contentPadding="15dp"
             app:cardUseCompatPadding="true"
-            android:id="@+id/cardView">
+            android:id="@+id/cardView"
+            app:cardCornerRadius="5dp"
+            app:cardElevation="10dp">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingBottom="20dp">
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -34,6 +37,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Title\n"
+                    android:paddingTop="5dp"
                     android:textColor="#000"
                     android:textSize="30sp"
                     android:textStyle="bold"
@@ -65,6 +69,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
+                            android:padding="5dp"
                             android:id="@+id/hdescription"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -95,6 +100,7 @@
                             tools:visibility="gone">
 
                             <TextView
+                                android:padding="7dp"
                                 android:id="@+id/description"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
@@ -113,6 +119,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
+                    android:padding="5dp"
                     app:cardCornerRadius="5dp"
                     app:cardElevation="10dp"
                     app:layout_constraintTop_toBottomOf="@+id/firstCard">
@@ -122,6 +129,7 @@
                         android:layout_height="match_parent">
 
                         <TextView
+                            android:padding="5dp"
                             android:id="@+id/hview"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -155,6 +163,7 @@
                             <TextView
                                 android:id="@+id/view"
                                 android:layout_width="wrap_content"
+                                android:padding="7dp"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="7dp"
                                 android:text="view"
@@ -168,6 +177,7 @@
 
                 <androidx.cardview.widget.CardView
                     android:id="@+id/thirdCard"
+                    android:padding="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -177,10 +187,12 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="match_parent"
+                        android:paddingBottom="10dp"
                         android:layout_height="match_parent">
 
                         <TextView
                             android:id="@+id/hreach"
+                            android:padding="5dp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="HowToReach"
@@ -215,6 +227,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="7dp"
                                 android:text="view"
+                                android:padding="7dp"
                                 android:textColor="#212121" />
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -223,36 +236,31 @@
 
                 </androidx.cardview.widget.CardView>
 
+                <Button
+                    android:id="@+id/nearby"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Visit Place\n"
+                    android:layout_margin="7dp"
+                    android:textColor="#212121"
+                    android:background="@drawable/sidenavbar"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@+id/thirdCard"/>
+
+                <Button
+                    android:id="@+id/review"
+                    android:layout_margin="7dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Write Review\n"
+                    android:textColor="#212121"
+                    android:background="@drawable/sidenavbar"
+                    android:textAlignment="center"
+                    app:layout_constraintTop_toBottomOf="@+id/nearby"/>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </androidx.cardview.widget.CardView>
-
-        <Button
-            android:id="@+id/nearby"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/colorPrimaryDark1"
-            android:text="Visit Place"
-            android:textColor="#212121"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
-        <Button
-            android:id="@+id/review"
-            android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/colorPrimaryDark1"
-            android:text="Write Review"
-            android:textColor="#212121"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/nearby" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </ScrollView>
