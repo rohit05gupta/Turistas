@@ -2,6 +2,7 @@ package com.example.inserttest;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.location.Location;
 import android.os.Bundle;
@@ -57,6 +58,8 @@ public class Main2Activity extends ControlActivity implements
         setContentView(R.layout.activity_main2);
 
         super.onCreateDrawer();
+
+        getSupportActionBar().setTitle("Your Location");
 
         mapView = findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);

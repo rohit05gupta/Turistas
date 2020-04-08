@@ -2,6 +2,8 @@ package com.example.inserttest;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.location.Location;
 import android.os.Bundle;
 import com.mapbox.mapboxsdk.location.LocationComponent;
@@ -69,6 +71,8 @@ public class PlaceView extends ControlActivity implements OnMapReadyCallback,Per
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_view);
         super.onCreateDrawer();
+
+        getSupportActionBar().setTitle("Place Information");
         Mapbox.getInstance(this, getString(R.string.access_token));
         mapView = findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);

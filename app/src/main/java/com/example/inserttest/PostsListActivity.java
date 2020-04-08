@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.ActionProvider;
 import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -48,6 +49,8 @@ public class PostsListActivity extends ControlActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posts_list);
         super.onCreateDrawer();
+
+        getSupportActionBar().setTitle("Turistas Places");
         //ActionBar actionBar = getSupportActionBar();
         //actionBar.setTitle("List Of Places");
 

@@ -2,6 +2,8 @@ package com.example.inserttest;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 import android.location.Location;
 import android.os.Bundle;
 import com.mapbox.mapboxsdk.location.LocationComponent;
@@ -68,6 +70,9 @@ public class Main4Activity extends ControlActivity implements OnMapReadyCallback
         Mapbox.getInstance(this, getString(R.string.access_token));
         setContentView(R.layout.activity_main4);
         super.onCreateDrawer();
+
+        getSupportActionBar().setTitle("Select Destination");
+
         mapView = findViewById(R.id.mapView);
         mapView.onCreate(savedInstanceState);
         mapView.getMapAsync(this);

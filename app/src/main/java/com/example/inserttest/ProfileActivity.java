@@ -1,6 +1,7 @@
 package com.example.inserttest;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -20,6 +21,8 @@ public class ProfileActivity extends ControlActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         super.onCreateDrawer();
+
+        getSupportActionBar().setTitle("Profile");
 
         mAuth = FirebaseAuth.getInstance();
         textName = findViewById(R.id.textViewName);
