@@ -49,28 +49,15 @@ public class ProfileActivity extends ControlActivity{
                 mobile.setText(rec.getPhone().toString());
                 interest.setText(rec.getPOI());
             }
-
             @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
+            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) { }
             @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-            }
-
+            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) { }
             @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-            }
-
+            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) { }
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
+            public void onCancelled(@NonNull DatabaseError databaseError) { }
         });
-
     }
     @Override
     protected void onStart() {

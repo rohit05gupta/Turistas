@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RatingBar;
+import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -31,6 +32,7 @@ public class Review extends ControlActivity {
     ReviewData rd;
     Button b1;
     String id;
+    TextView tf1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +47,7 @@ public class Review extends ControlActivity {
             startActivity(new Intent(this, LoginActivity.class));
         }
 
+        tf1 = findViewById(R.id.pname);
         ed1 = (EditText)findViewById(R.id.heading);
         ed2 = (EditText)findViewById(R.id.comment);
         r1 = (RatingBar)findViewById(R.id.ratingBar);
@@ -60,8 +63,7 @@ public class Review extends ControlActivity {
         String email = user.getEmail();
         String specification = getIntent().getStringExtra("specification");
         String pname = getIntent().getStringExtra("pname");
-
-
+        tf1.setText(pname);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

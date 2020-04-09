@@ -17,6 +17,9 @@
             android:layout_height="wrap_content"
             android:background="@drawable/sidenavbar"
             android:id="@+id/toolbar"/>
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
         <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:app="http://schemas.android.com/apk/res-auto"
             xmlns:tools="http://schemas.android.com/tools"
@@ -24,26 +27,119 @@
             android:layout_height="match_parent"
             android:orientation="vertical"
             tools:context=".Review">
-            <TextView
+            <LinearLayout
+                android:id="@+id/linearLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Heading"
-                android:layout_marginTop="10dp"/>
-            <EditText
-                android:id="@+id/heading"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <TextView
+                android:orientation="horizontal"
+                android:padding="10dp"
+                android:background="@color/colorPrimarylighten3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageView
+                    android:id="@+id/email_imageview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/username"
+                    app:srcCompat="@drawable/profile_vector" />
+
+                <TextView
+                    android:id="@+id/email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=" parth@gmail.com"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.031"
+                    app:layout_constraintStart_toEndOf="@+id/email_imageview"
+                    app:layout_constraintTop_toBottomOf="@id/username" />
+
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Comment: "
-                android:layout_marginTop="10dp"/>
+                android:orientation="vertical"
+                tools:context=".Review"
+                android:layout_marginTop="20dp">
+                <TextView
+                    android:id="@+id/pname"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Place Name"
+                    android:textSize="20dp"
+                    android:textColor="#000"
+                    android:textAlignment="center"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Tap to rate"
+                    android:textSize="20dp"
+                    android:textAlignment="center"
+                    android:textStyle="bold"/>
+                <RatingBar
+                    android:layout_gravity="center"
+                    android:id="@+id/ratingBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="#c0c0c0"/>
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:paddingTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Add a title"
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                android:layout_marginTop="10dp" />
+
+                <EditText
+                    android:layout_margin="10dp"
+                    android:padding="10dp"
+                    android:id="@+id/heading"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/inputborder"
+                    android:hint="Heading for your review"
+                    android:paddingLeft="10dp"
+                    android:inputType="textVisiblePassword" />
+
+                <View
+                    android:layout_marginTop="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="#c0c0c0"/>
+
+                <TextView
+                    android:layout_margin="10dp"
+                    android:paddingTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add a written review"
+                    android:textColor="#000"
+                    android:textSize="18dp"
+                    android:layout_marginTop="10dp" />
+
             <EditText
+                android:layout_margin="10dp"
+                android:padding="10dp"
                 android:id="@+id/comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="top|left"
                 android:inputType="textMultiLine"
+                android:background="@drawable/inputborder"
+                android:hint="Tell us what you like or dislike about this product"
                 android:overScrollMode="always"
                 android:scrollbarStyle="insideInset"
                 android:scrollbars="vertical"
@@ -51,32 +147,25 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:scrollHorizontally="false"
                 />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tap to rate"
-                android:textSize="20dp"
-                android:textAlignment="center"
-                android:textStyle="bold"/>
-            <RatingBar
-                android:id="@+id/ratingBar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:layout_marginLeft="80dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
+                <View
+                    android:layout_marginTop="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="#c0c0c0"/>
             <Button
                 android:id="@+id/b1"
+                android:background="@drawable/sidenavbar"
                 android:layout_margin="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="submit" />
 
+
         </LinearLayout>
     </LinearLayout>
-
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
     <com.google.android.material.navigation.NavigationView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
