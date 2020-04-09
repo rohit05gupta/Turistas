@@ -105,6 +105,8 @@ public class PlaceDetail extends ControlActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_detail);
         super.onCreateDrawer();
+
+        getSupportActionBar().setTitle("Place Information");
         String pname = getIntent().getStringExtra("placename");
         mRecyclerView = findViewById(R.id.cycle);
         mRecyclerView.setHasFixedSize(true);
