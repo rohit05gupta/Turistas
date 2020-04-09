@@ -35,18 +35,6 @@ public class ViewHolder extends RecyclerView.ViewHolder {
             }
         });
     }
-
-
-    /*public void setDetails(Context ctx,String name,String image,String specification){
-        TextView mTitleTv = mView.findViewById(R.id.rTitleTv);
-        TextView mDetailTv = mView.findViewById(R.id.rDescriptionTv);
-        ImageView mImageIv = mView.findViewById(R.id.rImageView);
-
-        mTitleTv.setText(name);
-        mDetailTv.setText(specification);
-        Picasso.get().load(image).into(mImageIv);
-
-    }*/
     private ViewHolder.ClickListener mClickListener;
     public interface ClickListener{
         void onItemClick(View view,int position);

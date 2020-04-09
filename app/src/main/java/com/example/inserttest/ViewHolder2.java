@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.*;
 import android.content.Context;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
@@ -13,7 +14,7 @@ public class ViewHolder2 extends RecyclerView.ViewHolder {
 
     public TextView t1,t2,t3,t4,t5;
     public ImageView i1;
-    public Button b2,b3;
+    public Button b2,b3,b1;
     //View mView;
     public ViewHolder2(View itemView){
         super(itemView);
@@ -26,12 +27,10 @@ public class ViewHolder2 extends RecyclerView.ViewHolder {
         t4 = (TextView)itemView.findViewById(R.id.view);
         t5 = (TextView)itemView.findViewById(R.id.reach);
 
-        //b1 = (Button)itemView.findViewById(R.id.visit);
+        b1 = (Button)itemView.findViewById(R.id.readreview);
         b2 = (Button)itemView.findViewById(R.id.review);
         b3 = (Button)itemView.findViewById(R.id.nearby);
     }
-
-
     /*public void setDetails(Context ctx,String name,String image,String specification){
         TextView mTitleTv = mView.findViewById(R.id.rTitleTv);
         TextView mDetailTv = mView.findViewById(R.id.rDescriptionTv);
@@ -42,6 +41,5 @@ public class ViewHolder2 extends RecyclerView.ViewHolder {
         Picasso.get().load(image).into(mImageIv);
 
     }*/
-
 }
 

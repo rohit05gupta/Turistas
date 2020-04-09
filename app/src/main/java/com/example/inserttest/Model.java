@@ -11,6 +11,44 @@ public class Model {
     int visited;
     String view;
     String rating;
+    String pname;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    String email;
+
+    public String getPname() {
+        return pname;
+    }
+
+    public void setPname(String pname) {
+        this.pname = pname;
+    }
+
+    public String getHeading() {
+        return heading;
+    }
+
+    public void setHeading(String heading) {
+        this.heading = heading;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    String heading;
+    String comment;
 
     public int getVisited() {
         return visited;

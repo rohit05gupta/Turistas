@@ -138,6 +138,14 @@ public class PlaceDetail extends ControlActivity {
                 final String lat = model.getLatitude();
                 final String lon = model.getLongitude();
                 final String name = model.getName();
+                holder.b1.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(PlaceDetail.this,ReadReview.class);
+                        i.putExtra("pname",name);
+                        startActivity(i);
+                    }
+                });
                 holder.b2.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {
@@ -150,14 +158,12 @@ public class PlaceDetail extends ControlActivity {
                 holder.b3.setOnClickListener(new View.OnClickListener(){
                     @Override
                     public void onClick(View v) {
-
                         final String final_specification = specification.substring(0, 1).toLowerCase() + specification.substring(1);
                         firebaseAuth = FirebaseAuth.getInstance();
                         if (firebaseAuth.getCurrentUser() == null) {
                             finish();
                             startActivity(new Intent(PlaceDetail.this, LoginActivity.class));
                         }
-
                         FirebaseUser user = firebaseAuth.getCurrentUser();
                         String email = user.getEmail();
                         reff2 = FirebaseDatabase.getInstance().getReference("UserData");
@@ -165,7 +171,6 @@ public class PlaceDetail extends ControlActivity {
                             @Override
                             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
                                 rec = dataSnapshot.getValue(UserData.class);
-
                                 int count = 100;
                                 if(final_specification.equals("hillStation")) {
                                     count = rec.getHillStation();
@@ -205,26 +210,14 @@ public class PlaceDetail extends ControlActivity {
                                 reff2 = FirebaseDatabase.getInstance().getReference("UserData");
                                 reff2.child(rec.getId()).child(final_specification).setValue(count);
                             }
-
                             @Override
-                            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-                            }
-
+                            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) { }
                             @Override
-                            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-
-                            }
-
+                            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) { }
                             @Override
-                            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-
-                            }
-
+                            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {}
                             @Override
-                            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                            }
+                            public void onCancelled(@NonNull DatabaseError databaseError) { }
                         });
                         Intent i = new Intent(PlaceDetail.this,MainActivity.class);
                         i.putExtra("latitude",lat);
@@ -240,7 +233,6 @@ public class PlaceDetail extends ControlActivity {
                 ViewHolder2 viewHolder = new ViewHolder2(view);
                 return viewHolder;
             }
-
         };
         GridLayoutManager g = new GridLayoutManager(getApplicationContext(),1);
         mRecyclerView.setLayoutManager(g);
@@ -248,7 +240,6 @@ public class PlaceDetail extends ControlActivity {
         adapter.startListening();
         mRecyclerView.setAdapter(adapter);
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -258,20 +249,17 @@ public class PlaceDetail extends ControlActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
     protected void onStart(){
         if(adapter != null)
             adapter.startListening();
         super.onStart();
     }
-
     @Override
     protected void onStop() {
         if(adapter != null)
             adapter.startListening();
         super.onStop();
     }
-
     @Override
     protected void onResume() {
         if(adapter != null)

@@ -8,8 +8,7 @@ public class ReviewData {
     float rating;
     String email;
 
-    public ReviewData() {
-    }
+    public ReviewData() { }
 
     public String getPname() {
         return pname;
