@@ -126,6 +126,22 @@
                 tools:layout_editor_absoluteY="304dp" />
 
             <Button
+                android:id="@+id/buttonChoose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="15dp"
+                android:layout_marginTop="0dp"
+                android:text="Choose Image" />
+
+            <ImageView
+                android:id="@+id/imageViewProfile"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15dp" />
+
+            <Button
                 android:layout_margin="15dp"
                 android:id="@+id/buttonRegister"
                 android:layout_width="match_parent"

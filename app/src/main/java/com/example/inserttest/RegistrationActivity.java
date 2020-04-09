@@ -4,23 +4,33 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.ContentResolver;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import static android.text.TextUtils.isEmpty;
 
@@ -33,6 +43,13 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     private EditText editTextEmail;
     private EditText editTextPass;
     private TextView textViewSignin;
+
+    //profile image
+    private Button ch;
+    private ImageView img;
+    private StorageReference mStorageRef;
+    public Uri imguri;
+    FirebaseUser u;
 
     private DatabaseReference ref;
 
@@ -47,6 +64,22 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         //getSupportActionBar().hide();
+
+        //profile image
+        mStorageRef = FirebaseStorage.getInstance().getReference("Images");
+        ch = findViewById(R.id.buttonChoose);
+        //up = findViewById(R.id.buttonUpload);
+        img = findViewById(R.id.imageViewProfile);
+        ch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Filechooser();
+            }
+        });
+
+
+
+
         progressDialog = new ProgressDialog(this);
 
         firebaseAuth = FirebaseAuth.getInstance();
@@ -74,6 +107,53 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         buttonRegister.setOnClickListener(this);
         textViewSignin.setOnClickListener(this);
     }
+
+    private void Filechooser(){
+        Intent intent = new Intent();
+        intent.setType("image/*");
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData()!= null){
+            imguri = data.getData();
+            img.setImageURI(imguri);
+        }
+    }
+
+    private String getExtension(Uri uri) {
+        ContentResolver cr = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+        return mimeTypeMap.getExtensionFromMimeType(cr.getType(uri));
+    }
+
+    private void Fileuploader(){
+        String currentuser = editTextEmail.getText().toString().trim();
+        StorageReference Ref = mStorageRef.child(currentuser+"."+getExtension(imguri));
+
+        Ref.putFile(imguri)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        // Get a URL to the uploaded content
+                        //Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                        Toast.makeText(RegistrationActivity.this, "Image Uploaded Successfully", Toast.LENGTH_LONG).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        // Handle unsuccessful uploads
+                        // ...
+                        Toast.makeText(RegistrationActivity.this, "Image Upload failed", Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
+
+
     String POI ="";
     private void registerUser(){
         final String name = editTextName.getText().toString().trim();
@@ -183,6 +263,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         if (v == buttonRegister){
             registerUser();
+            Fileuploader();
         }
         if (v == textViewSignin){
             startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
