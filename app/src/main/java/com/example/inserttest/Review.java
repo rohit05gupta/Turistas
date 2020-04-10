@@ -24,6 +24,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class Review extends ControlActivity {
     private FirebaseAuth firebaseAuth;
     EditText ed1,ed2;
@@ -81,8 +83,18 @@ public class Review extends ControlActivity {
                 rd.setSpecification(specification);
                 reff.push().setValue(rd);
 
-                Intent i = new Intent(Review.this,ProfileActivity.class);
-                startActivity(i);
+                new SweetAlertDialog(Review.this, SweetAlertDialog.SUCCESS_TYPE)
+                        .setTitleText("Good job!")
+                        .setContentText("Successfully Submitted!")
+                        .setConfirmText("Ok!")
+                        .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                            @Override
+                            public void onClick(SweetAlertDialog sDialog) {
+                                sDialog.dismissWithAnimation();
+                                startActivity(new Intent(getApplicationContext(), PostsListActivity.class));
+                            }
+                        })
+                        .show();
             }
         });
     }
