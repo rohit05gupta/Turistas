@@ -148,7 +148,6 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
                 if(resultCode == RESULT_OK){
                     img.setImageURI(result.getUri());
-                    imguri = result.getUri();
                 }
         }
 
