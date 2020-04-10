@@ -160,11 +160,13 @@
                 tools:layout_editor_absoluteY="383dp" />
 
             <TextView
-                android:textAlignment="center"
-                android:text="Alredy registered? Sign in here"
                 android:id="@+id/textViewSignin"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textColor="@color/white"
+                android:text="Alredy registered? Sign in here"
+                android:textAlignment="center"
+                android:textSize="20sp" />
 
         </LinearLayout>
 
