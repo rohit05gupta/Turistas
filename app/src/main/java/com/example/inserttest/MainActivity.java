@@ -50,7 +50,7 @@ import java.util.List;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
-public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+public class MainActivity extends ControlActivity implements OnMapReadyCallback {
     private TomtomMap tomtomMap;
     private SearchApi searchApi;
     private RoutingApi routingApi;
@@ -74,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        super.onCreateDrawer();
 
         getSupportActionBar().setTitle("Navidation");
 

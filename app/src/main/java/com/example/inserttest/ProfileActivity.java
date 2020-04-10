@@ -35,7 +35,7 @@ public class ProfileActivity extends ControlActivity{
         setContentView(R.layout.activity_profile);
 
         super.onCreateDrawer();
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         username = findViewById(R.id.username);
         pemail = findViewById(R.id.email);
         mobile = findViewById(R.id.mobile);
