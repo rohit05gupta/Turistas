@@ -2,6 +2,7 @@ package com.example.inserttest;
 
 public class UserData {
     private String Name;
+    private String Image;
     private Long Phone;
     private String POI;
     private String Email;
@@ -14,6 +15,15 @@ public class UserData {
     private int Beach;
     private int ReligiousDestination;
     private String id;
+
+    public String getImage() {
+        return Image;
+    }
+
+    public void setImage(String image) {
+        Image = image;
+    }
+
     public String getId() {
         return id;
     }

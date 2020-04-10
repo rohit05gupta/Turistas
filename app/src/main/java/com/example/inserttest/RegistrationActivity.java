@@ -45,7 +45,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     private TextView textViewSignin;
 
     //profile image
-    private Button ch;
+    private Button ch,up;
     private ImageView img;
     private StorageReference mStorageRef;
     public Uri imguri;
@@ -68,7 +68,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         //profile image
         mStorageRef = FirebaseStorage.getInstance().getReference("Images");
         ch = findViewById(R.id.buttonChoose);
-        //up = findViewById(R.id.buttonUpload);
+        up = findViewById(R.id.buttonUpload);
         img = findViewById(R.id.imageViewProfile);
         ch.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -76,6 +76,16 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                 Filechooser();
             }
         });
+        up.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                progressDialog.setMessage("Uploading Image");
+                progressDialog.show();
+                Fileuploader();
+            }
+        });
+
+
 
 
 
@@ -130,6 +140,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         return mimeTypeMap.getExtensionFromMimeType(cr.getType(uri));
     }
 
+    String imgUrl;
     private void Fileuploader(){
         String currentuser = editTextEmail.getText().toString().trim();
         StorageReference Ref = mStorageRef.child(currentuser+"."+getExtension(imguri));
@@ -139,8 +150,14 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         // Get a URL to the uploaded content
-                        //Uri downloadUrl = taskSnapshot.getDownloadUrl();
-                        Toast.makeText(RegistrationActivity.this, "Image Uploaded Successfully", Toast.LENGTH_LONG).show();
+                        Ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                imgUrl = String.valueOf(uri);
+                                progressDialog.dismiss();
+                                Toast.makeText(RegistrationActivity.this, "Upload Successful", Toast.LENGTH_LONG).show();
+                            }
+                        });
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -211,6 +228,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
                             user.setMuseum(0);
                             user.setHistoricalPlace(0);
                             user.setReligiousDestination(0);
+                            user.setImage(imgUrl);
 
                             ref.child(id).setValue(user);
                         }
@@ -263,7 +281,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     public void onClick(View v) {
         if (v == buttonRegister){
             registerUser();
-            Fileuploader();
+            //Fileuploader();
         }
         if (v == textViewSignin){
             startActivity(new Intent(RegistrationActivity.this, LoginActivity.class));
