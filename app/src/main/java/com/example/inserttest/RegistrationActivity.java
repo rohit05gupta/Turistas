@@ -178,9 +178,15 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         final String email = editTextEmail.getText().toString().trim();
         final String password = editTextPass.getText().toString().trim();
 
-        if(TextUtils.isEmpty(name)){
-            Toast.makeText(this, "Enter your name", Toast.LENGTH_SHORT).show();
-            return;
+        if(TextUtils.isEmpty(name) || TextUtils.isDigitsOnly(name)){
+            if(TextUtils.isEmpty(name)){
+                Toast.makeText(this, "Enter your name", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            else{
+                Toast.makeText(this, "Name Can't be Numeric", Toast.LENGTH_SHORT).show();
+                return;
+            }
         }
 
         if(phone==0){
@@ -200,6 +206,11 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
 
         if(TextUtils.isEmpty(password)){
             Toast.makeText(this, "Enter your password", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(TextUtils.isEmpty(POI)){
+            Toast.makeText(this, "Select Place of Interest", Toast.LENGTH_SHORT).show();
             return;
         }
 
