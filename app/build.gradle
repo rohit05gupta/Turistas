@@ -98,4 +98,6 @@ dependencies {
     //Material Design
     implementation 'com.google.android.material:material:1.1.0'
 
+    //sweet aert
+    implementation 'com.github.f0ris.sweetalert:library:1.5.6'
 }

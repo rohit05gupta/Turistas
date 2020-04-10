@@ -17,7 +17,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-
+import cn.pedant.SweetAlert.SweetAlertDialog;
+import android.graphics.Color;
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
     private Button buttonSignin;
@@ -65,17 +66,27 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        progressDialog.setMessage("Logging you in please wait...");
-        progressDialog.show();
+        //progressDialog.setMessage("Logging you in please wait...");
+        //progressDialog.show();
 
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        progressDialog.dismiss();
+                        //progressDialog.dismiss();
                         if(task.isSuccessful()){
-                            finish();
-                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                            new SweetAlertDialog(LoginActivity.this, SweetAlertDialog.SUCCESS_TYPE)
+                                    .setTitleText("Good job!")
+                                    .setContentText("You have successfully signed in!")
+                                    .setConfirmText("Ok!")
+                                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                        @Override
+                                        public void onClick(SweetAlertDialog sDialog) {
+                                            sDialog.dismissWithAnimation();
+                                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                                        }
+                                    })
+                                    .show();
                         }
                     }
                 });
