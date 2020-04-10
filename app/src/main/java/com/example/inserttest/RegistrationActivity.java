@@ -3,6 +3,8 @@ package com.example.inserttest;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.Manifest;
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -31,6 +33,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.theartofdev.edmodo.cropper.CropImage;
+import com.theartofdev.edmodo.cropper.CropImageView;
 
 import static android.text.TextUtils.isEmpty;
 
@@ -73,7 +77,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         ch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Filechooser();
+                CropImage.startPickImageActivity(RegistrationActivity.this);
+                //Filechooser();
             }
         });
         up.setOnClickListener(new View.OnClickListener() {
@@ -118,20 +123,46 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
         textViewSignin.setOnClickListener(this);
     }
 
-    private void Filechooser(){
+    /*private void Filechooser(){
         Intent intent = new Intent();
         intent.setType("image/*");
         intent.setAction(Intent.ACTION_GET_CONTENT);
         startActivityForResult(intent, 1);
-    }
+    }*/
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData()!= null){
-            imguri = data.getData();
-            img.setImageURI(imguri);
+
+        if(requestCode == CropImage.PICK_IMAGE_CHOOSER_REQUEST_CODE && resultCode == Activity.RESULT_OK){
+            imguri = CropImage.getPickImageResultUri(this,data);
+            if(CropImage.isReadExternalStoragePermissionsRequired(this, imguri)){
+                //uri = imguri;
+                requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, 0);
+            }else{
+                startCrop(imguri);
+            }
         }
+
+        if(requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE){
+            CropImage.ActivityResult result = CropImage.getActivityResult(data);
+                if(resultCode == RESULT_OK){
+                    img.setImageURI(result.getUri());
+                }
+        }
+
+        /*if(requestCode == 1 && resultCode == RESULT_OK && data != null && data.getData()!= null){
+            //imguri = data.getData();
+            img.setImageURI(imguri);
+        }*/
+    }
+
+    private void startCrop(Uri uri){
+        CropImage.activity(uri)
+                .setGuidelines(CropImageView.Guidelines.ON)
+                .setMultiTouchEnabled(true)
+                .setFixAspectRatio(true)
+                .start(this);
     }
 
     private String getExtension(Uri uri) {
