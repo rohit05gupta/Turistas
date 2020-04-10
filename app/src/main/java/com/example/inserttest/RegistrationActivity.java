@@ -245,8 +245,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
             return;
         }
 
-        progressDialog.setMessage("Registering User...");
-        progressDialog.show();
+        /*progressDialog.setMessage("Registering User...");
+        progressDialog.show();*/
 
 
         firebaseAuth.createUserWithEmailAndPassword(email, password)
@@ -322,6 +322,8 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         if (v == buttonRegister){
+            progressDialog.setMessage("registering User");
+            progressDialog.show();
             registerUser();
             //Fileuploader();
         }
