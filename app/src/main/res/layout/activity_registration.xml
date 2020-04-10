@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg3"
+    android:background="@drawable/walking_gif_bg"
     tools:context=".MainActivity">
     <ScrollView
         android:layout_width="fill_parent"
@@ -18,19 +18,21 @@
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textSize="50dp"
+                android:layout_height="74dp"
+                android:fontFamily="@font/mydrive_font"
                 android:paddingTop="5dp"
                 android:text="Registration"
-                android:textColor="@color/white"
-                android:textAlignment="center" />
+                android:textAlignment="center"
+                android:textColor="@color/black_fully_opaque"
+                android:textSize="50dp" />
             <EditText
                 android:layout_margin="15dp"
                 android:inputType="text"
                 android:hint="Enter Your Name"
                 android:id="@+id/editTextName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                android:textColor="#ffffff"/>
 
             <EditText
                 android:layout_margin="15dp"
