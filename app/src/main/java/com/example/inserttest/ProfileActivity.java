@@ -9,7 +9,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -18,12 +20,15 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.squareup.picasso.Callback;
+import com.squareup.picasso.Picasso;
 
 public class ProfileActivity extends ControlActivity{
     TextView username,pemail,mobile,interest;
     FirebaseAuth mAuth;
     DatabaseReference reff2;
     UserData rec;
+    ImageView iv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,6 +40,7 @@ public class ProfileActivity extends ControlActivity{
         pemail = findViewById(R.id.email);
         mobile = findViewById(R.id.mobile);
         interest = findViewById(R.id.poi);
+        iv = findViewById(R.id.user_imageview);
 
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser user = mAuth.getCurrentUser();
@@ -48,6 +54,19 @@ public class ProfileActivity extends ControlActivity{
                 pemail.setText(rec.getEmail());
                 mobile.setText(rec.getPhone().toString());
                 interest.setText(rec.getPOI());
+                if(rec.getImage() != null) {
+                    Picasso.get().load(rec.getImage()).into(iv, new Callback() {
+                        @Override
+                        public void onSuccess() {
+                            Toast.makeText(ProfileActivity.this, "Success", Toast.LENGTH_LONG).show();
+                        }
+
+                        @Override
+                        public void onError(Exception e) {
+                            Toast.makeText(ProfileActivity.this, "ERROR", Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             }
             @Override
             public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) { }
