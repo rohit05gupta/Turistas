@@ -40,7 +40,6 @@ import java.io.Console;
 public class PostsListActivity extends ControlActivity {
     RecyclerView mRecyclerView;
     DatabaseReference reff;
-
     TextView hemail;
     FirebaseRecyclerOptions<Model> options;
     FirebaseRecyclerAdapter<Model,ViewHolder> adapter;
@@ -53,8 +52,6 @@ public class PostsListActivity extends ControlActivity {
         getSupportActionBar().setTitle("Turistas Places");
         //ActionBar actionBar = getSupportActionBar();
         //actionBar.setTitle("List Of Places");
-
-
         mRecyclerView = findViewById(R.id.cycle);
         mRecyclerView.setHasFixedSize(true);
         reff = FirebaseDatabase.getInstance().getReference().child("Places");

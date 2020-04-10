@@ -12,7 +12,7 @@ public class ReviewHolder extends RecyclerView.ViewHolder{
     //View mView;
     public ReviewHolder(View itemView){
         super(itemView);
-        t1 = (TextView)itemView.findViewById(R.id.name);
+        t1 = (TextView)itemView.findViewById(R.id.email);
         t2 = (TextView)itemView.findViewById(R.id.title);
         t3 = (TextView)itemView.findViewById(R.id.comment);
         //t4 = (TextView)itemView.findViewById(R.id.cost);

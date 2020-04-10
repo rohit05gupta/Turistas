@@ -9,15 +9,12 @@ public class ReviewData {
     String email;
 
     public ReviewData() { }
-
     public String getPname() {
         return pname;
     }
-
     public void setPname(String pname) {
         this.pname = pname;
     }
-
     public String getSpecification() {
         return specification;
     }

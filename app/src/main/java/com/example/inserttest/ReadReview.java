@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -32,28 +33,36 @@ import com.squareup.picasso.Picasso;
 
 public class ReadReview extends ControlActivity {
     RecyclerView mRecyclerView;
+    DatabaseReference reff;
+    TextView hemail;
     FirebaseRecyclerOptions<ReviewData> options;
     FirebaseRecyclerAdapter<ReviewData,ReviewHolder> adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        super.onCreateDrawer();
         setContentView(R.layout.activity_read_review);
-        String pname = getIntent().getStringExtra("pname");
-        mRecyclerView = findViewById(R.id.cycle);
+        super.onCreateDrawer();
+
+        getSupportActionBar().setTitle("Read Reviews");
+        String name = getIntent().getStringExtra("pname");
+        mRecyclerView = findViewById(R.id.review_cycle);
         mRecyclerView.setHasFixedSize(true);
+        reff = FirebaseDatabase.getInstance().getReference().child("Reviews");
+
         Query q = FirebaseDatabase.getInstance().getReference("Reviews")
                 .orderByChild("pname")
-                .equalTo(pname);
+                .equalTo(name);
+
         options = new FirebaseRecyclerOptions.Builder<ReviewData>().setQuery(q,ReviewData.class).build();
+
+
         adapter = new FirebaseRecyclerAdapter<ReviewData, ReviewHolder>(options) {
             @Override
             protected void onBindViewHolder(@NonNull ReviewHolder holder, int position, @NonNull ReviewData model) {
                 holder.t1.setText(model.getEmail());
                 holder.t2.setText(model.getHeading());
                 holder.t3.setText(model.getComment());
-                //holder.t4.setText(model.getCost);
-                //holder.r1.setRating(Float.parseFloat(model.getRating()));
+                holder.r1.setRating(model.getRating());
             }
             @NonNull
             @Override
@@ -65,6 +74,7 @@ public class ReadReview extends ControlActivity {
         };
         GridLayoutManager g = new GridLayoutManager(getApplicationContext(),1);
         mRecyclerView.setLayoutManager(g);
+
         adapter.startListening();
         mRecyclerView.setAdapter(adapter);
     }
