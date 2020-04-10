@@ -103,4 +103,5 @@ dependencies {
 
     //sweet aert
     implementation 'com.github.f0ris.sweetalert:library:1.5.6'
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 }
