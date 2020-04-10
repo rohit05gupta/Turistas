@@ -63,7 +63,7 @@ public class PostsListActivity extends ControlActivity {
                 Picasso.get().load(model.getImage()).into(holder.i1, new Callback() {
                     @Override
                     public void onSuccess() {
-                        Toast.makeText(PostsListActivity.this,"Success",Toast.LENGTH_LONG).show();
+                        //Toast.makeText(PostsListActivity.this,"Success",Toast.LENGTH_LONG).show();
                     }
                     @Override
                     public void onError(Exception e) {
@@ -115,7 +115,7 @@ public class PostsListActivity extends ControlActivity {
                 Picasso.get().load(model.getImage()).into(holder.i1, new Callback() {
                     @Override
                     public void onSuccess() {
-                        Toast.makeText(PostsListActivity.this,"Success",Toast.LENGTH_LONG).show();
+                        //Toast.makeText(PostsListActivity.this,"Success",Toast.LENGTH_LONG).show();
                     }
 
                     @Override

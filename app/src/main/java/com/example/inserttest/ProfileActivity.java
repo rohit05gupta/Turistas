@@ -58,7 +58,7 @@ public class ProfileActivity extends ControlActivity{
                     Picasso.get().load(rec.getImage()).into(iv, new Callback() {
                         @Override
                         public void onSuccess() {
-                            Toast.makeText(ProfileActivity.this, "Success", Toast.LENGTH_LONG).show();
+                            //Toast.makeText(ProfileActivity.this, "Success", Toast.LENGTH_LONG).show();
                         }
 
                         @Override
