@@ -108,7 +108,7 @@ public class ControlActivity extends AppCompatActivity implements NavigationView
                 break;
             case R.id.nearby:
                 Toast.makeText(ControlActivity.this,"NearBy Places Selected",Toast.LENGTH_LONG).show();
-                //startActivity(new Intent(getApplicationContext(), Main4Activity.class));
+                startActivity(new Intent(getApplicationContext(), Main5Activity.class));
                 break;
             case R.id.recommendation:
                 Toast.makeText(ControlActivity.this,"Recommendation Selected",Toast.LENGTH_LONG).show();

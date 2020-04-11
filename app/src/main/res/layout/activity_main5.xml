@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    tools:openDrawer="start"
+    android:id="@+id/drawer"
+    android:layout_height="match_parent"
+    tools:context=".ControlActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/sidenavbar"
+            android:id="@+id/toolbar"/>
+        <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".MainActivity">
+
+            <fragment
+                android:id="@+id/mapFragment"
+                android:name="com.tomtom.online.sdk.map.MapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/size_none"
+                app:layout_constraintBottom_toTopOf="@+id/layout_edittext"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="@dimen/size_none"
+                android:layout_height="@dimen/layout_height_xxlarge"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <ImageButton
+                    android:id="@+id/btn_main_gasstation"
+                    android:layout_width="@dimen/size_none"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:contentDescription="@string/gas_station_button_description"
+                    android:src="@drawable/ic_btn_gasstation" />
+
+                <ImageButton
+                    android:id="@+id/btn_main_restaurant"
+                    android:layout_width="@dimen/size_none"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:contentDescription="@string/restaurant_button_description"
+                    android:src="@drawable/ic_btn_restaurant" />
+
+                <ImageButton
+                    android:id="@+id/btn_main_atm"
+                    android:layout_width="@dimen/size_none"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@android:color/white"
+                    android:contentDescription="@string/atm_button_description"
+                    android:src="@drawable/ic_btn_atm" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_main_help"
+                android:layout_width="@dimen/rounded_button_size"
+                android:layout_height="@dimen/rounded_button_size"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:adjustViewBounds="true"
+                android:background="@drawable/bg_circular_button"
+                android:text="@string/question_mark"
+                android:textSize="@dimen/text_size_large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btn_main_clear"
+                android:clickable="false"
+                android:focusable="false"
+                android:layout_width="@dimen/rounded_button_size"
+                android:layout_height="@dimen/rounded_button_size"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:background="@drawable/bg_circular_button"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btn_main_help"
+                android:src="@drawable/ic_btn_trash"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_edittext"
+                android:layout_width="@dimen/size_none"
+                android:layout_height="@dimen/layout_height_xlarge"
+                android:background="@drawable/bg_border"
+                android:paddingBottom="@dimen/spacing_small"
+                app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <EditText
+                    android:id="@+id/edittext_main_poisearch"
+                    android:layout_width="@dimen/size_none"
+                    android:layout_height="@dimen/size_none"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/poisearch_hint"
+                    android:imeOptions="actionSearch"
+                    android:textSize="@dimen/text_size_normal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btn_main_poisearch"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:inputType="text" />
+
+                <ImageButton
+                    android:id="@+id/btn_main_poisearch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/size_none"
+                    android:layout_marginEnd="@dimen/spacing_small"
+                    android:layout_marginTop="@dimen/spacing_xtiny"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_magnifier" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/navigationView"
+        app:menu="@menu/menu_item"
+        app:headerLayout="@layout/header"
+        android:layout_gravity="start"
+        />
+</androidx.drawerlayout.widget.DrawerLayout>
