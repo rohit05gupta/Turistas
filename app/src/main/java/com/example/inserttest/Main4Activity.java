@@ -64,6 +64,7 @@ public class Main4Activity extends ControlActivity implements OnMapReadyCallback
     private static final String TAG = "DirectionsActivity";
     private NavigationMapRoute navigationMapRoute;
     private Button button;
+    public boolean destination_selection = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,12 +94,15 @@ public class Main4Activity extends ControlActivity implements OnMapReadyCallback
                 button.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        boolean simulateRoute = true;
-                        NavigationLauncherOptions options = NavigationLauncherOptions.builder()
-                                .directionsRoute(currentRoute)
-                                .shouldSimulateRoute(simulateRoute)
-                                .build();
-                        NavigationLauncher.startNavigation(Main4Activity.this, options);
+                        if(destination_selection == true){
+                            NavigationLauncherOptions options = NavigationLauncherOptions.builder()
+                                    .directionsRoute(currentRoute)
+                                    .build();
+                            NavigationLauncher.startNavigation(Main4Activity.this, options);
+                        }
+                        else{
+                            Toast.makeText(Main4Activity.this,"Please Select Destination",Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
             }
@@ -131,8 +135,8 @@ public class Main4Activity extends ControlActivity implements OnMapReadyCallback
         if (source != null) {
             source.setGeoJson(Feature.fromGeometry(destinationPoint));
         }
-
         getRoute(originPoint, destinationPoint);
+        destination_selection = true;
         button.setEnabled(true);
         button.setBackgroundResource(R.color.colorPrimary);
         return true;
