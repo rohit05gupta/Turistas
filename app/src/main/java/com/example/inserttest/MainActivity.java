@@ -76,7 +76,7 @@ public class MainActivity extends ControlActivity implements OnMapReadyCallback 
         setContentView(R.layout.activity_main);
         super.onCreateDrawer();
 
-        getSupportActionBar().setTitle("Navidation");
+        getSupportActionBar().setTitle("Navigation");
 
         String lat = getIntent().getStringExtra("latitude");
         String lon = getIntent().getStringExtra("longitude");
