@@ -34,7 +34,7 @@ public class Review extends ControlActivity {
     ReviewData rd;
     Button b1;
     String id;
-    TextView tf1;
+    TextView tf1,demail;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,6 +55,7 @@ public class Review extends ControlActivity {
         r1 = (RatingBar)findViewById(R.id.ratingBar);
         b1 = (Button)findViewById(R.id.b1);
 
+        demail = findViewById(R.id.email);
         firebaseAuth = FirebaseAuth.getInstance();
         if (firebaseAuth.getCurrentUser() == null) {
             finish();
@@ -63,6 +64,7 @@ public class Review extends ControlActivity {
 
         FirebaseUser user = firebaseAuth.getCurrentUser();
         String email = user.getEmail();
+        demail.setText(email);
         String specification = getIntent().getStringExtra("specification");
         String pname = getIntent().getStringExtra("pname");
         tf1.setText(pname);
