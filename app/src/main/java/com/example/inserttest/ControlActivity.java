@@ -91,27 +91,22 @@ public class ControlActivity extends AppCompatActivity implements NavigationView
 
         switch(menuItem.getItemId()){
             case R.id.home:
-                Toast.makeText(ControlActivity.this,"Home Selected",Toast.LENGTH_LONG).show();
                 startActivity(new Intent(getApplicationContext(), PostsListActivity.class));
                 break;
             case R.id.profile:
-                Toast.makeText(ControlActivity.this,"Profile Selected",Toast.LENGTH_LONG).show();
                 startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                 break;
             case R.id.location:
-                Toast.makeText(ControlActivity.this,"Location Selected",Toast.LENGTH_LONG).show();
                 startActivity(new Intent(getApplicationContext(), Main2Activity.class));
                 break;
             case R.id.directions:
-                Toast.makeText(ControlActivity.this,"Directions Selected",Toast.LENGTH_LONG).show();
                 startActivity(new Intent(getApplicationContext(), Main4Activity.class));
                 break;
             case R.id.nearby:
-                Toast.makeText(ControlActivity.this,"NearBy Places Selected",Toast.LENGTH_LONG).show();
                 startActivity(new Intent(getApplicationContext(), Main5Activity.class));
                 break;
             case R.id.recommendation:
-                Toast.makeText(ControlActivity.this,"Recommendation Selected",Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getApplicationContext(), Recommender.class));
                 break;
             case R.id.logout:
                 AuthUI.getInstance()

@@ -70,7 +70,6 @@ public class Recommendation extends AppCompatActivity {
                 mRecyclerView = findViewById(R.id.cycle);
                 mRecyclerView.setHasFixedSize(true);
 
-
                 reff = FirebaseDatabase.getInstance().getReference().child("Places");
                 Query q = FirebaseDatabase.getInstance().getReference("Places")
                         .orderByChild("specification")
@@ -111,8 +110,6 @@ public class Recommendation extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
-        ActionBar actionBar = getSupportActionBar();
-        actionBar.setTitle("Recommendation");
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
