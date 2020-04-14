@@ -46,7 +46,25 @@ import com.tomtom.online.sdk.search.data.reversegeocoder.ReverseGeocoderSearchQu
 import com.tomtom.online.sdk.search.data.reversegeocoder.ReverseGeocoderSearchResponse;
 
 import java.util.List;
-
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
+import android.os.Bundle;
+import android.os.Looper;
+import android.provider.Settings;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
@@ -69,6 +87,10 @@ public class MainActivity extends ControlActivity implements OnMapReadyCallback 
     private EditText editTextPois;
     private Dialog dialogInProgress;
     double latitude,longitude;
+    double slat,slon;
+
+    int PERMISSION_ID = 44;
+    FusedLocationProviderClient mFusedLocationClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +100,22 @@ public class MainActivity extends ControlActivity implements OnMapReadyCallback 
 
         getSupportActionBar().setTitle("Navigation");
 
+
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+                mFusedLocationClient.getLastLocation().addOnCompleteListener(
+                        new OnCompleteListener<Location>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Location> task) {
+                                Location location = task.getResult();
+                                if (location == null) {
+                                    Toast.makeText(MainActivity.this, "Turn on location", Toast.LENGTH_LONG).show();
+                                } else {
+                                    slat = location.getLatitude();
+                                    slon = location.getLongitude();
+                                }
+                            }
+                        }
+                );
         String lat = getIntent().getStringExtra("latitude");
         String lon = getIntent().getStringExtra("longitude");
         latitude = Double.parseDouble(lat);
@@ -95,7 +133,7 @@ public class MainActivity extends ControlActivity implements OnMapReadyCallback 
         this.tomtomMap.getMarkerSettings().setMarkerBalloonViewAdapter(createCustomViewAdapter());
 
         //SOURCE
-        searchApi.reverseGeocoding(new ReverseGeocoderSearchQueryBuilder(19.2029, 72.861557).build())
+        searchApi.reverseGeocoding(new ReverseGeocoderSearchQueryBuilder(slat, slon).build())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new DisposableSingleObserver<ReverseGeocoderSearchResponse>() {
