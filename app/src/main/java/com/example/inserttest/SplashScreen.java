@@ -33,16 +33,6 @@ public class SplashScreen extends AppCompatActivity {
 
         setContentView(R.layout.activity_splash_screen);
 
-        //Walkthrough
-        mSlideViewPager = findViewById(R.id.slideViewPager);
-        mDotLayout = findViewById(R.id.dotsLayout);
-
-        sliderAdapter = new SliderAdapter(this);
-        mSlideViewPager.setAdapter(sliderAdapter);
-        addDotsIndicator(0);
-        mSlideViewPager.addOnPageChangeListener(viewListener);
-
-
 
 
         //Splash Screen Animation
@@ -60,41 +50,4 @@ public class SplashScreen extends AppCompatActivity {
             }
         }, SPLASH_TIME);
     }
-    public void addDotsIndicator(int position){
-        mDots = new TextView[4];
-
-        for(int i=0;i<mDots.length;i++){
-
-            mDots[i] = new TextView(this);
-            mDots[i].setText(Html.fromHtml("&#8226"));
-            mDots[i].setTextSize(35);
-            mDots[i].setTextColor(getResources().getColor(R.color.black_fully_opaque));
-
-            mDotLayout.addView(mDots[i]);
-
-        }
-
-        if(mDots.length > 0){
-            mDots[position].setTextColor(getResources().getColor(R.color.black_fully_opaque));
-        }
-
-    }
-
-    ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
-        @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-        }
-
-        @Override
-        public void onPageSelected(int position) {
-            addDotsIndicator(position);
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int state) {
-
-        }
-    };
-
 }

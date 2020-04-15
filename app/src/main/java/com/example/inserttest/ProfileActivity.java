@@ -86,5 +86,11 @@ public class ProfileActivity extends ControlActivity{
             startActivity(new Intent(this, RegistrationActivity.class));
         }
     }
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed();
+        Toast.makeText(ProfileActivity.this,"There is no back action",Toast.LENGTH_LONG).show();
+        return;
+    }
 }
 
