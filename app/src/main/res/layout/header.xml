@@ -24,7 +24,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Welcome"
-            android:paddingLeft="20dp"
             android:textStyle="bold"
             android:id="@+id/welcome"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
@@ -33,7 +32,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="xyz@gmail.com"
-            android:paddingLeft="12dp"
             android:textStyle="bold"
             android:id="@+id/hemail"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
