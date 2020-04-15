@@ -93,11 +93,6 @@ public class MainActivity extends ControlActivity implements OnMapReadyCallback 
     double latitude,longitude;
     double slat,slon;
 
-    //Walkthrough variables
-    private ViewPager mSlideViewPager;
-    private LinearLayout mDotLayout;
-    private  TextView[] mDots;
-    private  SliderAdapter sliderAdapter;
 
     int PERMISSION_ID = 44;
     FusedLocationProviderClient mFusedLocationClient;
@@ -107,14 +102,6 @@ public class MainActivity extends ControlActivity implements OnMapReadyCallback 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Walkthrough
-        mSlideViewPager = findViewById(R.id.slideViewPager);
-        mDotLayout = findViewById(R.id.dotsLayout);
-
-        sliderAdapter = new SliderAdapter(this);
-        mSlideViewPager.setAdapter(sliderAdapter);
-        addDotsIndicator(0);
-        mSlideViewPager.addOnPageChangeListener(viewListener);
 
         super.onCreateDrawer();
 
@@ -145,43 +132,6 @@ public class MainActivity extends ControlActivity implements OnMapReadyCallback 
         setupUIViewListeners();
         disableSearchButtons();
     }
-
-    public void addDotsIndicator(int position){
-        mDots = new TextView[4];
-
-        for(int i=0;i<mDots.length;i++){
-
-            mDots[i] = new TextView(this);
-            mDots[i].setText(Html.fromHtml("&#8226"));
-            mDots[i].setTextSize(35);
-            mDots[i].setTextColor(getResources().getColor(R.color.black_fully_opaque));
-
-            mDotLayout.addView(mDots[i]);
-
-        }
-
-        if(mDots.length > 0){
-            mDots[position].setTextColor(getResources().getColor(R.color.black_fully_opaque));
-        }
-
-    }
-
-    ViewPager.OnPageChangeListener viewListener = new ViewPager.OnPageChangeListener() {
-        @Override
-        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-
-        }
-
-        @Override
-        public void onPageSelected(int position) {
-            addDotsIndicator(position);
-        }
-
-        @Override
-        public void onPageScrollStateChanged(int state) {
-
-        }
-    };
 
     @Override
     public void onMapReady(@NonNull final TomtomMap tomtomMap) {
