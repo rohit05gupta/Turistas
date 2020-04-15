@@ -12,7 +12,6 @@ public class HelpActivity extends AppCompatActivity {
 
     private ListView lv;
     ArrayList<String> myList;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

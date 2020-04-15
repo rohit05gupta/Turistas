@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.Arrays;
 
-public class Recommender extends AppCompatActivity {
+public class Recommender extends ControlActivity {
     private FirebaseAuth firebaseAuth;
     DatabaseReference reff,reff2;
     UserData rec;
@@ -35,7 +35,9 @@ public class Recommender extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recommender);
+        super.onCreateDrawer();
 
+        getSupportActionBar().setTitle("Recommendation");
         LinearLayout linearLayout = new LinearLayout(this);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT));

@@ -47,6 +47,7 @@ import com.tomtom.online.sdk.search.data.alongroute.AlongRouteSearchResult;
 import com.tomtom.online.sdk.search.data.reversegeocoder.ReverseGeocoderSearchQueryBuilder;
 import com.tomtom.online.sdk.search.data.reversegeocoder.ReverseGeocoderSearchResponse;
 
+import java.util.ArrayList;
 import java.util.List;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -93,6 +94,7 @@ public class MainActivity extends ControlActivity implements OnMapReadyCallback 
     double latitude,longitude;
     double slat,slon;
 
+    ArrayList<String> myList = new ArrayList<String>();
 
     int PERMISSION_ID = 44;
     FusedLocationProviderClient mFusedLocationClient;
@@ -254,6 +256,7 @@ public class MainActivity extends ControlActivity implements OnMapReadyCallback 
         btnAtm.setOnClickListener(searchButtonListener);
         btnHelp.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, HelpActivity.class);
+            intent.putExtra("mylist", myList);
             startActivity(intent);
         });
         btnClear.setOnClickListener(v -> clearMap());
@@ -329,9 +332,12 @@ public class MainActivity extends ControlActivity implements OnMapReadyCallback 
                                 String address = result.getAddress().getFreeformAddress();
                                 String poiName = result.getPoi().getName();
 
+
                                 BaseMarkerBalloon markerBalloonData = new BaseMarkerBalloon();
                                 markerBalloonData.addProperty(getString(R.string.poi_name_key), poiName);
                                 markerBalloonData.addProperty(getString(R.string.address_key), address);
+
+                                myList.add(poiName);
 
                                 MarkerBuilder markerBuilder = new MarkerBuilder(position)
                                         .markerBalloon(markerBalloonData)

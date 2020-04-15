@@ -73,14 +73,14 @@ tools:context=".ControlActivity">
 
         <Button
             android:id="@+id/btn_main_help"
-            android:layout_width="@dimen/rounded_button_size"
-            android:layout_height="@dimen/rounded_button_size"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_marginEnd="@dimen/spacing_small"
             android:layout_marginTop="@dimen/spacing_small"
             android:adjustViewBounds="true"
             android:background="@drawable/bg_circular_button"
-            android:text="@string/question_mark"
-            android:textSize="@dimen/text_size_large"
+            android:text="List Places"
+            android:textSize="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,8 +88,8 @@ tools:context=".ControlActivity">
             android:id="@+id/btn_main_clear"
             android:clickable="false"
             android:focusable="false"
-            android:layout_width="@dimen/rounded_button_size"
-            android:layout_height="@dimen/rounded_button_size"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:layout_marginEnd="@dimen/spacing_small"
             android:layout_marginTop="@dimen/spacing_small"
             android:background="@drawable/bg_circular_button"
