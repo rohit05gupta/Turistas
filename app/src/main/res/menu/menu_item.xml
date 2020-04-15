@@ -4,7 +4,7 @@
     <item
         android:id="@+id/home"
         android:title="Home"
-        android:icon="@drawable/profile_vector"/>
+        android:icon="@drawable/home_vector"/>
 
     <item
         android:id="@+id/profile"
@@ -24,12 +24,17 @@
     <item
         android:id="@+id/nearby"
         android:title="Near By Places"
-        android:icon="@drawable/direction_vector"/>
+        android:icon="@drawable/place_vector"/>
 
     <item
         android:id="@+id/recommendation"
         android:title="Recommendations"
         android:icon="@drawable/recommendation_vetor"/>
+
+    <item
+        android:id="@+id/analytics"
+        android:title="Analytics"
+        android:icon="@drawable/analytics_vector"/>
 
     <item
         android:id="@+id/logout"

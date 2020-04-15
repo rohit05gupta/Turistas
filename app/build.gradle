@@ -105,5 +105,9 @@ dependencies {
     implementation 'com.github.f0ris.sweetalert:library:1.5.6'
     implementation 'de.hdodenhof:circleimageview:3.1.0'
 
+    //location
     implementation 'com.google.android.gms:play-services-location:17.0.0'
+
+    //barchart
+    implementation 'com.github.PhilJay:MPAndroidChart:v2.2.4'
 }

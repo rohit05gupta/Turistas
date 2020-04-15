@@ -7,6 +7,7 @@ buildscript {
         mavenCentral()
 
         maven { url 'https://mapbox.bintray.com/mapbox' }
+        maven { url "https://jitpack.io" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.2'
@@ -23,7 +24,7 @@ allprojects {
         mavenCentral()
         maven { url 'https://mapbox.bintray.com/mapbox' }
         maven { url "https://maven.tomtom.com:8443/nexus/content/repositories/releases/" }
-
+        maven { url "https://jitpack.io" }
     }
 }
 

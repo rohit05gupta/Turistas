@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Recommender"></activity>
+        <activity android:name=".Analytics"></activity>
+        <activity android:name=".Recommender" />
         <activity android:name=".Main5Activity" />
         <activity android:name=".ReadReview" />
         <activity android:name=".Main4Activity" />

@@ -22,11 +22,7 @@ import com.squareup.picasso.Picasso;
 public class SplashScreen extends AppCompatActivity {
     int SPLASH_TIME = 3000;
 
-    //Walkthrough variables
-    private ViewPager mSlideViewPager;
-    private LinearLayout mDotLayout;
-    private  TextView[] mDots;
-    private  SliderAdapter sliderAdapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,9 +41,9 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 Intent mySuperIntent = new Intent(SplashScreen.this, RegistrationActivity.class);
                 startActivity(mySuperIntent);
-
                 finish();
             }
         }, SPLASH_TIME);
     }
+
 }

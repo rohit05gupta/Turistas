@@ -108,6 +108,9 @@ public class ControlActivity extends AppCompatActivity implements NavigationView
             case R.id.recommendation:
                 startActivity(new Intent(getApplicationContext(), Recommender.class));
                 break;
+            case R.id.analytics:
+                startActivity(new Intent(getApplicationContext(), Analytics.class));
+                break;
             case R.id.logout:
                 AuthUI.getInstance()
                         .signOut(ControlActivity.this)
