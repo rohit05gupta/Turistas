@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TuristasGit</string>
+    <string name="app_name">Turistas</string>
 
     <string name="access_token" translatable="false">pk.eyJ1IjoidHVyaXN0YXMiLCJhIjoiY2sxeWdsNnd1MGxiNTNocWd1M2t0enJpaCJ9.Sp9je7H_EDy6yWMcGpjTeA</string>
     <string name="user_location_permission_explanation">This app needs location permissions in order to show its functionality.</string>
