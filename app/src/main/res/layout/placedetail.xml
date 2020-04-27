@@ -245,17 +245,18 @@
                     android:gravity = "center"
                     android:orientation = "vertical"
                     app:layout_constraintTop_toBottomOf="@+id/thirdCard">
-                <Button
-                    android:id = "@+id/nearby"
-                    android:textSize = "18sp"
-                    android:textAlignment = "center"
-                    android:background = "@drawable/round_button"
-                    android:layout_width = "100dp"
-                    android:textColor = "#fff"
-                    android:layout_height = "100dp"
-                    android:gravity="center"
-                    android:text="Visit Palce"
-                    app:layout_constraintTop_toBottomOf="@+id/thirdCard"/>
+
+                    <Button
+                        android:id="@+id/nearby"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:background="@drawable/round_button"
+                        android:gravity="center"
+                        android:text="Visit Place"
+                        android:textAlignment="center"
+                        android:textColor="#fff"
+                        android:textSize="18sp"
+                        app:layout_constraintTop_toBottomOf="@+id/thirdCard" />
                     <Button
                         android:id = "@+id/review"
                         android:textSize = "18sp"
