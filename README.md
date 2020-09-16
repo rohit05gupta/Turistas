@@ -4,24 +4,25 @@ petrol pumps, ATM, etc. Which would help the travelers to explore or visit the n
 (in sense as finding for atm, restaurants, etc.. breakpoints would be untroubled).System will also be able to recommend new places to travel based user shared preferences. 
 
 Login Activity
+
 <a href="url"><img src="https://github.com/rohit05gupta/Turistas/blob/master/images/a1.png" align="left" height="500" width="300" ></a>
 
 Registration Activity
 
-![alt text](https://github.com/rohit05gupta/Turistas/blob/master/images/a2.png)
+<a href="url"><img src="https://github.com/rohit05gupta/Turistas/blob/master/images/a2.png" align="left" height="500" width="300" ></a>
 
 Profile Activity
 
-![alt text](https://github.com/rohit05gupta/Turistas/blob/master/images/a3.png)
+<a href="url"><img src="https://github.com/rohit05gupta/Turistas/blob/master/images/a3.png" align="left" height="500" width="300" ></a>
 
 Home Activity
 
-![alt text](https://github.com/rohit05gupta/Turistas/blob/master/images/a4.png)
+<a href="url"><img src="https://github.com/rohit05gupta/Turistas/blob/master/images/a4.png" align="left" height="500" width="300" ></a>
 
 Analytics
 
-![alt text](https://github.com/rohit05gupta/Turistas/blob/master/images/a5.png)
+<a href="url"><img src="https://github.com/rohit05gupta/Turistas/blob/master/images/a5.png" align="left" height="500" width="300" ></a>
 
 Navigation Drawer
 
-![alt text](https://github.com/rohit05gupta/Turistas/blob/master/images/a8.png)
+<a href="url"><img src="https://github.com/rohit05gupta/Turistas/blob/master/images/a8.png" align="left" height="500" width="300" ></a>
