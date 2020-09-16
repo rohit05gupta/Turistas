@@ -36,5 +36,5 @@ Navigation Drawer
 <br>
 Team:
 
-Parth Shah
+Parth Shah<br>
 Rohit Gupta
