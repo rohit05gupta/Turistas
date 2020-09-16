@@ -31,3 +31,11 @@ Analytics
 Navigation Drawer
 
 <a href="url"><img src="https://github.com/rohit05gupta/Turistas/blob/master/images/a8.png" align="center" height="500" width="310" ></a>
+
+
+<br>
+Team:
+
+Parth Shah
+
+Rohit Gupta
