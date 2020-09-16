@@ -3,4 +3,4 @@ Turistas is an application created to help travelers to guide with providing the
 petrol pumps, ATM, etc. Which would help the travelers to explore or visit the nearby spots which could make their journey route more exploring and comfortable 
 (in sense as finding for atm, restaurants, etc.. breakpoints would be untroubled).System will also be able to recommend new places to travel based user shared preferences. 
 
-![alt text](https://github.com/shahparth4299/Turistas/blob/master/C:\Users\parth\Desktop\G13_turistas\images\image.jpg?raw=true)
+![alt text](https://github.com/shahparth4299/Turistas/blob/master/C:\Users\parth\Desktop\G13_turistas\images\a1.png?raw=true)
