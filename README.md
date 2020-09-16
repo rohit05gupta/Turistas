@@ -4,7 +4,7 @@ petrol pumps, ATM, etc. Which would help the travelers to explore or visit the n
 (in sense as finding for atm, restaurants, etc.. breakpoints would be untroubled).System will also be able to recommend new places to travel based user shared preferences. 
 
 Login Activity
-<img src="https://github.com/rohit05gupta/Turistas/blob/master/images/a1.png" height="300" width="200>
+<a href="url"><img src="https://github.com/rohit05gupta/Turistas/blob/master/images/a1.png" align="left" height="300" width="100" ></a>
 ![alt text](https://github.com/rohit05gupta/Turistas/blob/master/images/a1.png)
 
 Registration Activity
