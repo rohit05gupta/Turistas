@@ -14,4 +14,4 @@ Home Activity
 Analytics
 ![alt text](https://github.com/rohit05gupta/Turistas/blob/master/images/a5.png)
 Navigation Drawer
-![alt text](https://github.com/rohit05gupta/Turistas/blob/master/images/a5.png)
+![alt text](https://github.com/rohit05gupta/Turistas/blob/master/images/a8.png)
