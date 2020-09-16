@@ -5,8 +5,7 @@ petrol pumps, ATM, etc. Which would help the travelers to explore or visit the n
 
 Login Activity
 
-<a href="url"><img src="https://github.com/rohit05gupta/Turistas/blob/master/images/a1.png" align="left" height="500" width="300" ></a>
-<br>
+<a href="url"><img src="https://github.com/rohit05gupta/Turistas/blob/master/images/a1.png" align="left" height="500" width="300" ></a><br />
 
 Registration Activity
 
